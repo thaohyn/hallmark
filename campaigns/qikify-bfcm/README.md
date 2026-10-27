@@ -31,6 +31,16 @@ Campaign có đúng **100 hộp**, nên key visual lấy chính con số này l�
 
 Muốn thêm kích thước mới: thêm một khung `.f` trong `kit.html` (mọi thứ bên trong dùng `em`, chỉ cần đặt width/height), rồi mở `kit.html?frame=<tên>` để chụp ở tỉ lệ 1:1.
 
+## File HTML tự chứa (dùng cho Claude Design)
+
+Thư mục `standalone/` có ba file đã gộp sẵn CSS và phần preview reveal, không phụ thuộc file nào khác:
+
+- `qikify-bfcm-landing.html`: landing page
+- `qikify-bfcm-reveal.html`: trang reveal (đổi tier bằng các nút bên dưới)
+- `qikify-bfcm-key-visual.html`: board KV, các khung export, badge, bảng màu, wireframe
+
+Font tải từ Google Fonts nên cần có mạng. Sau khi sửa file gốc, chạy `python3 standalone/bundle.py` để tạo lại.
+
 ## Trang reveal: những gì giữ nguyên, những gì custom
 
 - **Giữ nguyên**: hộp quà và animation unbox của Mysbox. Dev gắn nguyên khối Mysbox vào `data-slot="mysbox"` (khung nét đứt).

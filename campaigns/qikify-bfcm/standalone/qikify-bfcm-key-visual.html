@@ -1,0 +1,1691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qikify BFCM Key Visual</title>
+<meta name="description" content="The Qikify Black Friday box drop: master key visual, derived frames at export size, tier badges, reveal skin and wireframe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · shape: a key visual board, the master KV and its derived frames at export size · genre: playful · theme: custom · job: try · idea: "a limited drop of exactly 100 numbered boxes, each one a ticket you can see go" · vibe: "Black Friday drop, loud, numbered, rare"
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: the master KV, 1920 by 800, at the top of the board · nav: none, a board · footer: none · imagery: none, the box wall is the picture · signature: one box pulled out of the 100-box wall, flame, mid-shake
+ * axes: dark/display-condensed/chromatic-red · posture: full palette · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: H, eight frames on one board; each frame sits alone on its own row with its size and use beside it */
+/* Hallmark · waive 59 · kit.html is a spec board of frames, one rhythm on purpose · every spec row sits on the same hairline cadence so frames compare */
+/* Hallmark · waive 77 · the announcement bar spec is 1920 by 56 by definition · the bar frame cannot carry more mass than its export size */
+/* Hallmark · waive 78 · board spec heads stay small beside the frames · the frames, not the spec labels, are the board's display type */
+/* Hallmark · dismissed 72 · badges measure 3px only because the board zooms each frame down; at export size they carry 4px and more */
+/* Hallmark · dismissed 58 · the 453-word count includes the text inside the zoomed export frames on the board */
+/* Hallmark · dismissed F15 · the gaps differ inside fixed-size export frames, each composed alone, and the board itself uses one */
+/* Hallmark · shape: the box wall, a drop page built around 100 numbered boxes · genre: playful · theme: custom · job: try · idea: "a limited drop of exactly 100 numbered boxes, each one a ticket you can see go" · vibe: "Black Friday drop, loud, numbered, rare"
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: headline and action left, the 100-box wall right · nav: a logo slot and one action · footer: a slim bar, brand and terms · imagery: none, the box wall and the Mysbox stage are the picture · signature: the wall of 100 numbered boxes, opened ones lit in their tier colour
+ * axes: dark/display-condensed/chromatic-red · posture: full palette (ground, ink, flame signal, four tier colours with names and pips) · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: S, a box grid could fit any giveaway; numbered 001 to 100 and tied to the four named Qikify tiers so it only reads as this drop */
+/* Hallmark · waive 81 · data-slot mysbox on reveal.html holds the Mysbox unboxing itself · the Mysbox box and animation are kept as is and dev mounts them there */
+/* Hallmark · dismissed 23 · the flame tape is the declared full palette's Black Friday band, not accent creep */
+/* Hallmark · dismissed 25 · the Mysbox stage note is a one-line caption inside the frame, held at 30ch to sit centred */
+/* Hallmark · dismissed 40 · the reveal's ghost box numbers are aria-hidden texture behind the stage, not text to read */
+/* Hallmark · dismissed F18 · the logo slot is a fixed 120px mark in the nav, sized for Qikify's horizontal logo */
+/* Hallmark · brand: Qikify (no spec: qikify.com unreachable from the build container; logo and primary go in data-slot="logo" and --color-brand) */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* Black Friday ground: warm black, bone ink. Qikify's own primary is not locked yet (brand fetch blocked): drop it into --color-brand. */
+  --color-paper: oklch(15% 0.012 40); --color-paper-2: oklch(19% 0.014 40); --color-paper-3: oklch(24% 0.016 40);
+  --color-ink: oklch(95% 0.01 80); --color-ink-2: oklch(82% 0.012 80); --color-muted: oklch(66% 0.012 60);
+  --color-rule: oklch(32% 0.014 40);
+  --color-accent: oklch(66% 0.21 32); --color-accent-ink: oklch(16% 0.012 40); --color-focus: oklch(68% 0.2 32);
+  --color-brand: var(--color-ink);
+  /* Rarity ladder: silver, mint, gold, flame. Each tier also carries a name and 1 to 4 pips, so colour is never the only signal. */
+  --tier-common: oklch(84% 0.025 250); --tier-medium: oklch(80% 0.15 158); --tier-rare: oklch(82% 0.15 78); --tier-legendary: oklch(66% 0.21 32);
+  --tier-ink: oklch(16% 0.012 40);
+  --font-display: "Antonio", "Arial Narrow", ui-sans-serif, sans-serif; --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 6px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+
+/* Type */
+.display { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0; line-height: 1; }
+h1.display { font-size: clamp(3.5rem, 6.2vw, 6.5rem); max-width: 14ch; }
+h2.display { font-size: var(--text-section); line-height: 1.02; max-width: 22ch; }
+.lead { font-size: var(--text-lead); color: var(--color-ink-2); max-width: 34ch; }
+.small { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 52px; padding: 0 var(--space-xl); border: 1px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--tier-ink); font: 700 var(--text-md)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy="true"] { cursor: progress; }
+.link { color: var(--color-ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--color-rule); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); }
+.link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .btn, .link { transition: none; } }
+
+/* Logo slot: Qikify's real mark replaces the text fallback */
+.logo { display: inline-flex; align-items: center; width: 120px; aspect-ratio: 15 / 4; background: none; font: 700 var(--text-xl)/1 var(--font-body); color: var(--color-brand); text-decoration: none; letter-spacing: -0.02em; }
+.logo > img { object-fit: contain; object-position: left center; }
+.logo:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+
+/* Tier badge: name plus 1 to 4 pips, so rarity reads without colour */
+.badge { --t: var(--tier-common); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 32px; padding: 0 var(--space-sm); border: 1.5px solid var(--t); border-radius: var(--radius-pill); color: var(--t); font: 700 var(--text-sm)/1 var(--font-body); white-space: nowrap; }
+.badge .pips { display: inline-flex; gap: var(--space-3xs); }
+.badge .pips i { width: 7px; height: 7px; transform: rotate(45deg); border: 1.5px solid currentColor; }
+.badge .pips i.on { background: currentColor; }
+.badge--medium { --t: var(--tier-medium); }
+.badge--rare { --t: var(--tier-rare); background: var(--t); color: var(--tier-ink); }
+.badge--legendary { --t: var(--tier-legendary); background: var(--t); color: var(--color-accent-ink); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 4.5px var(--t); }
+
+/* The box wall: 100 numbered boxes */
+.wall { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.box { --t: var(--color-rule); position: relative; aspect-ratio: 1; display: grid; place-items: end start; padding: var(--space-2xs); border: 1px solid var(--color-rule); border-radius: 4px; background: var(--color-paper-2); color: var(--color-muted); font: 400 clamp(0.6875rem, 0.8vw, 0.8125rem)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.box::before { content: ""; position: absolute; inset: 22% 0 auto; border-top: 1px solid var(--color-rule); }
+.box[data-tier] { background: var(--t); border-color: var(--t); color: var(--tier-ink); }
+.box[data-tier]::before { border-color: color-mix(in oklab, var(--tier-ink) 25%, transparent); }
+.box[data-tier="common"] { --t: var(--tier-common); }
+.box[data-tier="medium"] { --t: var(--tier-medium); }
+.box[data-tier="rare"] { --t: var(--tier-rare); }
+.box[data-tier="legendary"] { --t: var(--tier-legendary); color: var(--color-accent-ink); }
+
+.box.is-next { border-color: var(--color-accent); color: var(--color-ink); animation: nudge 2.4s var(--ease-in-out) infinite; }
+@keyframes nudge { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-6deg); } 82% { transform: rotate(5deg); } 88% { transform: rotate(-3deg); } 94% { transform: rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .box.is-next { animation: none; } }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-xs) 0 0; padding: 0; list-style: none; }
+
+/* Black Friday tape: the campaign's one pattern */
+.tape { display: flex; gap: var(--space-xl); overflow: hidden; padding: var(--space-xs) 0; background: var(--color-accent); color: var(--color-accent-ink); font: 700 var(--text-md)/1.2 var(--font-display); text-transform: uppercase; white-space: nowrap; }
+.tape span { flex-shrink: 0; }
+
+/* ---------- Landing page ---------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 72px; }
+.nav .small a { color: var(--color-ink-2); }
+
+.hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); align-items: center; min-height: min(728px, calc(100svh - 112px)); padding-block: var(--space-xl) var(--space-2xl); }
+.hero__copy { grid-column: 1 / span 6; display: grid; gap: var(--space-lg); justify-items: start; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-xs); }
+.hero__wall { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+.hero__wall .small { display: flex; justify-content: space-between; gap: var(--space-md); }
+.engine { display: inline-flex; align-items: center; gap: var(--space-xs); }
+
+.section { padding-block: var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.section__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
+
+.ladder { display: grid; margin: 0; padding: 0; list-style: none; }
+.rung { --t: var(--tier-common); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); gap: var(--gap-columns); align-items: center; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.rung:last-child { border-bottom: 1px solid var(--color-rule); }
+.rung > .badge { justify-self: start; }
+.rung__prize { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-3xl); line-height: 1; color: var(--t); }
+.rung__apps { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.rung__apps li { padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); }
+.rung--medium { --t: var(--tier-medium); }
+.rung--rare { --t: var(--tier-rare); }
+.rung--legendary { --t: var(--tier-legendary); }
+.rung--legendary .rung > .badge { justify-self: start; }
+.rung__prize { font-size: var(--text-section); }
+
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; }
+.split__ways { display: grid; gap: var(--space-md); }
+.split__ways h2 { margin-bottom: var(--space-lg); }
+.faq__title { margin-bottom: var(--space-md); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); }
+.way { display: grid; gap: var(--space-md); align-content: start; padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-paper-2); }
+.way h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+
+.stage-preview { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); align-items: center; }
+.stage-preview__copy { display: grid; gap: var(--space-md); justify-items: start; }
+
+.faq { display: grid; }
+.faq details { border-top: 1px solid var(--color-rule); }
+.faq details:last-child { border-bottom: 1px solid var(--color-rule); }
+.faq summary { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); font-weight: 700; font-size: var(--text-lg); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--color-muted); }
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.faq details p { padding-bottom: var(--space-lg); color: var(--color-ink-2); }
+.tbc { color: var(--tier-rare); }
+
+.close { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; }
+.close__num { font-family: var(--font-display); font-weight: 700; font-size: clamp(10rem, 26vw, 24rem); line-height: 0.8; color: var(--color-accent); font-variant-numeric: tabular-nums; }
+.close__copy { display: grid; gap: var(--space-lg); justify-items: start; padding-bottom: var(--space-md); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+
+@media (max-width: 60rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: var(--space-xl); padding-top: var(--space-md); }
+  .hero__copy, .hero__wall { grid-column: 1; }
+  .rung { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .split, .stage-preview, .close { grid-template-columns: minmax(0, 1fr); }
+  .split { gap: var(--space-2xl); }
+}
+@media (max-width: 40rem) {
+  .nav .small { display: none; }
+  .wall { gap: var(--space-2xs); }
+  .way { padding: var(--space-lg); }
+}
+
+/* ---------- Reveal page (custom skin around the Mysbox stage) ---------- */
+.reveal { --t: var(--tier-legendary); position: relative; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; isolation: isolate; background: radial-gradient(60% 55% at 50% 52%, color-mix(in oklab, var(--t) 30%, var(--color-paper)), var(--color-paper) 70%); }
+.reveal[data-tier="common"] { --t: var(--tier-common); }
+.reveal[data-tier="medium"] { --t: var(--tier-medium); }
+.reveal[data-tier="rare"] { --t: var(--tier-rare); }
+.reveal__ghost { --cell: min(calc((100svh - var(--space-xl)) / 10 - var(--space-sm)), calc((100vw - var(--space-xl)) / 10 - var(--space-sm))); position: absolute; inset: 0; z-index: -1; display: grid; grid-template-columns: repeat(10, var(--cell)); grid-auto-rows: var(--cell); justify-content: center; align-content: center; gap: var(--space-sm); overflow: hidden; pointer-events: none; mask-image: linear-gradient(var(--color-paper) 50%, transparent 66%); }
+.reveal__ghost span { display: grid; place-items: end start; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--color-rule); border-radius: 4px; color: var(--color-muted); font: 400 var(--text-xs)/1 var(--font-display); opacity: 0.28; }
+.reveal__ghost span.is-this { opacity: 1; border: 2px solid var(--t); color: var(--t); }
+.reveal .nav .small { color: var(--color-ink-2); }
+.reveal__main { display: grid; justify-items: center; align-content: center; gap: var(--space-lg); padding: var(--space-xl) var(--gutter); text-align: center; }
+.mysbox-stage { width: min(560px, 100%); aspect-ratio: 1; display: grid; place-items: center; border: 1.5px dashed color-mix(in oklab, var(--t) 60%, var(--color-rule)); border-radius: var(--radius-card); background: color-mix(in oklab, var(--color-paper) 80%, transparent); color: var(--color-muted); }
+.mysbox-stage p { max-width: 30ch; }
+.stage-frame { pointer-events: none; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); }
+.stage-frame:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.reveal__main .mysbox-stage { width: min(420px, 100%); }
+.result { display: grid; justify-items: center; gap: var(--space-sm); }
+.result .display { font-size: var(--text-display-s); max-width: 18ch; }
+.tier-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xs); padding: var(--space-md); }
+.tier-switch button { min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); cursor: pointer; transition: border-color var(--dur-short) var(--ease-out); }
+.tier-switch button:hover { border-color: var(--color-ink-2); }
+.tier-switch button[aria-pressed="true"] { border-color: var(--color-ink); color: var(--color-ink); }
+.tier-switch button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.box.is-gone { background: transparent; border-style: dashed; border-color: var(--color-accent); color: transparent; }
+.box.is-gone::before { border: 0; }
+
+
+/* Board */
+.board { display: grid; gap: var(--space-3xl); padding-block: var(--space-2xl) var(--space-4xl); }
+.board__head { display: grid; gap: var(--space-md); }
+.spec { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--gap-columns); align-items: start; padding-top: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.spec__meta { display: grid; gap: var(--space-xs); }
+.spec__meta h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+.spec__body { min-width: 0; display: grid; gap: var(--space-lg); }
+.fit { width: max-content; max-width: 100%; overflow: hidden; border-radius: var(--radius-card); outline: 1px solid var(--color-rule); }
+.fit > .f { zoom: var(--z, 0.45); }
+.row { display: flex; flex-wrap: wrap; gap: var(--space-lg); align-items: flex-start; }
+
+/* Frames: fixed export sizes. Inside, everything is in em so a frame scales as one picture. */
+.f { --t: var(--tier-legendary); position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); background: var(--color-paper); color: var(--color-ink); font-size: 16px; isolation: isolate; }
+.f--kv { width: 1920px; height: 800px; }
+.f--mobile { width: 750px; height: 1000px; font-size: 20px; }
+.f--inapp { width: 1200px; height: 300px; }
+.f--email { width: 1200px; height: 600px; }
+.f--bar { width: 1920px; height: 56px; }
+.f--popup { width: 800px; height: 960px; font-size: 18px; }
+.f--reveal { width: 1920px; height: 1080px; }
+
+.f .tape { padding: 0.6em 0; font-size: 1.25em; }
+.f .logo { width: 7.5em; height: 2em; font-size: 1em; }
+.f .logo { font-size: 1.75em; width: auto; }
+.f .small { font-size: 0.95em; }
+.f .btn { min-height: 3.5em; padding: 0 2.25em; font-size: 1.15em; }
+.f .badge { font-size: 0.95em; padding-block: var(--space-2xs); }
+.f h1, .f h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; line-height: 1; letter-spacing: 0; }
+
+/* The lifted box: one box pulled out of the wall, mid-shake */
+.f .wall { gap: 0.5em; }
+.f .box { font-size: 0.85em; padding: 0.3em 0.4em; }
+.lift { position: absolute; display: grid; place-items: center; aspect-ratio: 1; border-radius: 0.5em; background: var(--color-accent); color: var(--color-accent-ink); transform: rotate(-8deg); box-shadow: 0 0 0 0.6em var(--color-paper); font-family: var(--font-display); font-weight: 700; }
+.lift::before { content: ""; position: absolute; inset: 22% 0 auto; border-top: 0.12em solid color-mix(in oklab, var(--color-accent-ink) 35%, transparent); }
+.lift b { font-size: 3.6em; line-height: 1; }
+.lift span { position: absolute; left: 0.7em; bottom: 0.5em; font-size: 1.1em; font-weight: 400; }
+
+/* KV master 1920 x 800 */
+.kv { grid-template-rows: max-content 1fr; }
+.kv__body { display: grid; grid-template-columns: minmax(0, 1fr) 40em; gap: 7em; align-items: center; padding: 0 7.5em 3em; }
+.kv__copy { display: grid; gap: 2em; justify-items: start; }
+.kv__copy .logo { margin-bottom: 1em; }
+.kv__copy h1 { font-size: 8.25em; }
+.kv__copy .lead { font-size: 1.6em; max-width: 30ch; }
+.kv__actions { display: flex; align-items: center; gap: 2em; }
+.kv__art { position: relative; }
+.kv__art .lift { width: 13em; top: 11em; left: -4em; }
+.kv__art .lift b { font-size: 6em; }
+.kv__meta { display: flex; justify-content: space-between; margin-top: 1.25em; color: var(--color-muted); }
+
+/* Mobile 750 x 1000 */
+.mob { grid-template-rows: max-content max-content 1fr; }
+.mob__copy { display: grid; gap: 1.2em; justify-items: start; padding: 1.5em 1.6em 0; }
+.mob__copy h1 { font-size: 4.6em; }
+.mob__copy .lead { font-size: 1.2em; max-width: 26ch; }
+.mob__art { position: relative; padding: 2em 1.6em 0; }
+.mob__art .lift { width: 8em; top: 0.6em; right: 2em; }
+.mob__art .lift b { font-size: 4em; }
+
+/* In-app notification 1200 x 300 */
+.inapp { grid-template-columns: minmax(0, 1fr) 30em; }
+.inapp__copy { display: grid; gap: 0.9em; align-content: center; justify-items: start; padding: 0 3em; }
+.inapp__copy h2 { font-size: 3.6em; }
+.inapp__copy .btn { min-height: 2.9em; }
+.inapp__art { position: relative; padding: 1.5em 2em 0 0; }
+.inapp__art .lift { width: 7em; top: 4.5em; left: -2em; }
+.inapp__art .lift b { font-size: 3.2em; }
+
+/* Email header 1200 x 600 */
+.email { grid-template-rows: max-content 1fr; }
+.email__body { display: grid; grid-template-columns: 1fr 26em; gap: 3em; align-items: center; padding: 0 4em; }
+.email__copy { display: grid; gap: 1.4em; justify-items: start; }
+.email__copy h1 { font-size: 6em; }
+.email__art { position: relative; }
+.email__art .lift { width: 8.5em; top: 6em; left: -3em; }
+.email__art .lift b { font-size: 4em; }
+
+/* Announcement bar 1920 x 56 */
+.bar { display: flex; align-items: center; justify-content: center; gap: 1.5em; background: var(--color-accent); color: var(--color-accent-ink); }
+.bar p { font: 700 1.5em/1 var(--font-display); text-transform: uppercase; }
+.bar a { color: var(--color-accent-ink); font-weight: 700; font-size: 1.05em; text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Popup 800 x 960 */
+.pop { grid-template-rows: max-content max-content 1fr; border-radius: 1em; }
+.pop__art { position: relative; padding: 2.5em 2.5em 0; }
+.pop__art .lift { width: 10em; top: 4em; left: 50%; margin-left: -5em; }
+.pop__art .lift b { font-size: 5em; }
+.pop__copy { display: grid; gap: 1.4em; justify-items: center; align-content: center; padding: 2em 3em 2.5em; text-align: center; }
+.pop__copy h2 { font-size: 5em; }
+.pop__copy .lead { font-size: 1.3em; }
+.pop__close { position: absolute; top: 1.4em; right: 1.4em; z-index: 2; display: grid; place-items: center; width: 2.5em; height: 2.5em; border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: 1.1em; }
+.pop .legend { justify-content: center; }
+
+/* Wireframe */
+.wf { display: grid; gap: var(--space-xs); padding: var(--space-md); border-radius: var(--radius-card); background: var(--color-paper-2); font-size: var(--text-sm); color: var(--color-ink-2); }
+.wf > div { display: grid; gap: var(--space-xs); padding: var(--space-sm); border: 1px dashed var(--color-muted); border-radius: 4px; }
+.wf .cols { grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr); border: 0; padding: 0; }
+.wf .cols > span, .wf .blk { padding: var(--space-sm); border: 1px dashed var(--color-muted); border-radius: 4px; min-height: 64px; }
+.wf--desk { width: min(100%, 720px); }
+.wf--mob { width: 240px; }
+.wf b { color: var(--color-ink); }
+
+/* Swatches */
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); }
+.swatch { display: grid; gap: var(--space-xs); }
+.swatch i { display: block; height: 96px; border-radius: var(--radius-card); background: var(--s); }
+.swatch code { color: var(--color-muted); font-family: var(--font-body); font-size: var(--text-sm); }
+
+/* Export mode: one frame, unscaled, alone */
+body.export { background: var(--color-paper); }
+body.export .board > :not(.is-export), body.export .spec__meta { display: none; }
+body.export .board { padding: 0; max-width: none; }
+body.export .spec { display: block; padding: 0; border: 0; }
+body.export .fit { outline: 0; border-radius: 0; width: max-content; max-width: none; }
+body.export .fit > .f { zoom: 1; }
+body.export .spec__body > :not(.is-export) { display: none; }
+
+@media (max-width: 60rem) {
+  .spec { grid-template-columns: minmax(0, 1fr); }
+  .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .board .lift { animation: shake 2.6s var(--ease-in-out) infinite; }
+  @keyframes shake { 0%, 72%, 100% { transform: rotate(-8deg); } 78% { transform: rotate(-14deg); } 84% { transform: rotate(-3deg); } 90% { transform: rotate(-11deg); } 95% { transform: rotate(-6deg); } }
+}
+body.export .lift { animation: none; }
+</style>
+</head>
+<body>
+<main class="container board">
+  <header class="board__head">
+    <h1 class="display">Qikify Black Friday box drop</h1>
+    <p class="lead">100 numbered boxes on a wall, and yours pulled out.</p>
+  </header>
+
+  <section class="spec" id="kv" aria-labelledby="kv-t">
+    <div class="spec__meta">
+      <h2 id="kv-t">Master key visual</h2>
+      <p class="small">1920 by 800. Hero desktop.</p>
+      <p class="small">The other frames are cut from this one.</p>
+    </div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.6"><div class="f f--kv kv" data-frame="kv-hero-desktop-1920x800">
+  <div class="tape" aria-hidden="true"><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span></div>
+  <div class="kv__body">
+    <div class="kv__copy">
+      <span class="logo" data-slot="logo" data-alt="Qikify">Qikify</span>
+      <h1>Open one of 100<br>Black Friday boxes</h1>
+      <p class="lead">Inside: a Qikify app discount, a $50 Amazon card, or three apps.</p>
+      <div class="kv__actions"><span class="btn">Open a box</span><span class="small">Unboxing by Mysbox</span></div>
+    </div>
+    <div class="kv__art"><ol class="wall" aria-hidden="true"><li class="box">001</li><li class="box">002</li><li class="box">003</li><li class="box">004</li><li class="box">005</li><li class="box">006</li><li class="box" data-tier="common">007</li><li class="box">008</li><li class="box">009</li><li class="box">010</li><li class="box">011</li><li class="box" data-tier="common">012</li><li class="box">013</li><li class="box">014</li><li class="box">015</li><li class="box">016</li><li class="box">017</li><li class="box">018</li><li class="box">019</li><li class="box">020</li><li class="box">021</li><li class="box">022</li><li class="box" data-tier="medium">023</li><li class="box">024</li><li class="box">025</li><li class="box">026</li><li class="box">027</li><li class="box">028</li><li class="box">029</li><li class="box">030</li><li class="box" data-tier="common">031</li><li class="box">032</li><li class="box">033</li><li class="box">034</li><li class="box">035</li><li class="box">036</li><li class="box">037</li><li class="box" data-tier="rare">038</li><li class="box">039</li><li class="box">040</li><li class="box">041</li><li class="box">042</li><li class="box">043</li><li class="box" data-tier="common">044</li><li class="box">045</li><li class="box">046</li><li class="box">047</li><li class="box">048</li><li class="box">049</li><li class="box">050</li><li class="box">051</li><li class="box" data-tier="medium">052</li><li class="box">053</li><li class="box">054</li><li class="box">055</li><li class="box">056</li><li class="box">057</li><li class="box">058</li><li class="box" data-tier="common">059</li><li class="box">060</li><li class="box">061</li><li class="box">062</li><li class="box is-gone">063</li><li class="box">064</li><li class="box">065</li><li class="box" data-tier="common">066</li><li class="box">067</li><li class="box">068</li><li class="box">069</li><li class="box">070</li><li class="box" data-tier="medium">071</li><li class="box">072</li><li class="box">073</li><li class="box">074</li><li class="box">075</li><li class="box">076</li><li class="box" data-tier="legendary">077</li><li class="box">078</li><li class="box">079</li><li class="box">080</li><li class="box">081</li><li class="box">082</li><li class="box">083</li><li class="box">084</li><li class="box" data-tier="common">085</li><li class="box">086</li><li class="box">087</li><li class="box">088</li><li class="box">089</li><li class="box" data-tier="rare">090</li><li class="box">091</li><li class="box">092</li><li class="box">093</li><li class="box">094</li><li class="box">095</li><li class="box" data-tier="medium">096</li><li class="box">097</li><li class="box">098</li><li class="box">099</li><li class="box">100</li></ol><div class="lift" aria-hidden="true"><b>?</b><span>063</span></div><div class="kv__meta"><ul class="legend"><li><span class="badge"><span class="pips"><i class="on"></i><i></i><i></i><i></i></span>Common</span></li><li><span class="badge badge--medium"><span class="pips"><i class="on"></i><i class="on"></i><i></i><i></i></span>Medium rare</span></li><li><span class="badge badge--rare"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>Rare</span></li><li><span class="badge badge--legendary"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Legendary</span></li></ul></div></div>
+  </div>
+</div></div>
+    </div>
+  </section>
+
+  <section class="spec" id="mobile" aria-labelledby="mobile-t">
+    <div class="spec__meta">
+      <h2 id="mobile-t">Hero mobile</h2>
+      <p class="small">750 by 1000, 2x of 375.</p>
+      <p class="small">Wall drops under the copy and is cropped by the fold.</p>
+    </div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.6"><div class="f f--mobile mob" data-frame="kv-hero-mobile-750x1000">
+  <div class="tape" aria-hidden="true"><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span></div>
+  <div class="mob__copy">
+    <span class="logo" data-slot="logo" data-alt="Qikify">Qikify</span>
+    <h1>Open one of 100 Black Friday boxes</h1>
+    <p class="lead">Inside: a Qikify app discount, a $50 Amazon card, or three apps.</p>
+    <span class="btn">Open a box</span>
+  </div>
+  <div class="mob__art"><ol class="wall" aria-hidden="true"><li class="box">001</li><li class="box">002</li><li class="box">003</li><li class="box">004</li><li class="box">005</li><li class="box">006</li><li class="box" data-tier="common">007</li><li class="box">008</li><li class="box">009</li><li class="box">010</li><li class="box">011</li><li class="box" data-tier="common">012</li><li class="box">013</li><li class="box">014</li><li class="box">015</li><li class="box">016</li><li class="box">017</li><li class="box">018</li><li class="box">019</li><li class="box">020</li><li class="box">021</li><li class="box">022</li><li class="box" data-tier="medium">023</li><li class="box">024</li><li class="box">025</li><li class="box">026</li><li class="box">027</li><li class="box">028</li><li class="box">029</li><li class="box">030</li><li class="box" data-tier="common">031</li><li class="box">032</li><li class="box">033</li><li class="box">034</li><li class="box">035</li><li class="box">036</li><li class="box">037</li><li class="box" data-tier="rare">038</li><li class="box">039</li><li class="box">040</li><li class="box">041</li><li class="box">042</li><li class="box">043</li><li class="box" data-tier="common">044</li><li class="box">045</li><li class="box">046</li><li class="box">047</li><li class="box">048</li><li class="box">049</li><li class="box">050</li><li class="box">051</li><li class="box" data-tier="medium">052</li><li class="box">053</li><li class="box">054</li><li class="box">055</li><li class="box">056</li><li class="box">057</li><li class="box">058</li><li class="box" data-tier="common">059</li><li class="box">060</li></ol><div class="lift" aria-hidden="true"><b>?</b><span>063</span></div></div>
+</div></div>
+    </div>
+  </section>
+
+  <section class="spec" id="inapp" aria-labelledby="inapp-t">
+    <div class="spec__meta">
+      <h2 id="inapp-t">In-app notification</h2>
+      <p class="small">1200 by 300.</p>
+      <p class="small">Banner inside Qikify apps for existing users.</p>
+    </div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.8"><div class="f f--inapp inapp" data-frame="inapp-banner-1200x300">
+  <div class="inapp__copy">
+    <h2>Your Black Friday box is waiting</h2>
+    <p class="small">One of 100. Unboxing by Mysbox.</p>
+    <span class="btn">Open my box</span>
+  </div>
+  <div class="inapp__art"><ol class="wall" aria-hidden="true"><li class="box">001</li><li class="box">002</li><li class="box">003</li><li class="box">004</li><li class="box">005</li><li class="box">006</li><li class="box" data-tier="common">007</li><li class="box">008</li><li class="box">009</li><li class="box">010</li><li class="box">011</li><li class="box" data-tier="common">012</li><li class="box">013</li><li class="box">014</li><li class="box">015</li><li class="box">016</li><li class="box">017</li><li class="box">018</li><li class="box">019</li><li class="box">020</li><li class="box">021</li><li class="box">022</li><li class="box" data-tier="medium">023</li><li class="box">024</li><li class="box">025</li><li class="box">026</li><li class="box">027</li><li class="box">028</li><li class="box">029</li><li class="box">030</li><li class="box" data-tier="common">031</li><li class="box">032</li><li class="box">033</li><li class="box">034</li><li class="box">035</li><li class="box">036</li><li class="box">037</li><li class="box" data-tier="rare">038</li><li class="box">039</li><li class="box">040</li></ol><div class="lift" aria-hidden="true"><b>?</b><span>063</span></div></div>
+</div></div>
+    </div>
+  </section>
+
+  <section class="spec" id="email" aria-labelledby="email-t">
+    <div class="spec__meta">
+      <h2 id="email-t">Email header</h2>
+      <p class="small">1200 by 600, 2x of 600.</p>
+      <p class="small">Newsletter and announcement emails.</p>
+    </div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.8"><div class="f f--email email" data-frame="email-header-1200x600">
+  <div class="tape" aria-hidden="true"><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span></div>
+  <div class="email__body">
+    <div class="email__copy">
+      <span class="logo" data-slot="logo" data-alt="Qikify">Qikify</span>
+      <h1>100 boxes. Which one is yours?</h1>
+      <ul class="legend"><li><span class="badge"><span class="pips"><i class="on"></i><i></i><i></i><i></i></span>Common</span></li><li><span class="badge badge--medium"><span class="pips"><i class="on"></i><i class="on"></i><i></i><i></i></span>Medium rare</span></li><li><span class="badge badge--rare"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>Rare</span></li><li><span class="badge badge--legendary"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Legendary</span></li></ul>
+    </div>
+    <div class="email__art"><ol class="wall" aria-hidden="true"><li class="box">001</li><li class="box">002</li><li class="box">003</li><li class="box">004</li><li class="box">005</li><li class="box">006</li><li class="box" data-tier="common">007</li><li class="box">008</li><li class="box">009</li><li class="box">010</li><li class="box">011</li><li class="box" data-tier="common">012</li><li class="box">013</li><li class="box">014</li><li class="box">015</li><li class="box">016</li><li class="box">017</li><li class="box">018</li><li class="box">019</li><li class="box">020</li><li class="box">021</li><li class="box">022</li><li class="box" data-tier="medium">023</li><li class="box">024</li><li class="box">025</li><li class="box">026</li><li class="box">027</li><li class="box">028</li><li class="box">029</li><li class="box">030</li><li class="box" data-tier="common">031</li><li class="box">032</li><li class="box">033</li><li class="box">034</li><li class="box">035</li><li class="box">036</li><li class="box">037</li><li class="box" data-tier="rare">038</li><li class="box">039</li><li class="box">040</li><li class="box">041</li><li class="box">042</li><li class="box">043</li><li class="box" data-tier="common">044</li><li class="box">045</li><li class="box">046</li><li class="box">047</li><li class="box">048</li><li class="box">049</li><li class="box">050</li><li class="box">051</li><li class="box" data-tier="medium">052</li><li class="box">053</li><li class="box">054</li><li class="box">055</li><li class="box">056</li><li class="box">057</li><li class="box">058</li><li class="box" data-tier="common">059</li><li class="box">060</li><li class="box">061</li><li class="box">062</li><li class="box is-gone">063</li><li class="box">064</li><li class="box">065</li><li class="box" data-tier="common">066</li><li class="box">067</li><li class="box">068</li><li class="box">069</li><li class="box">070</li><li class="box" data-tier="medium">071</li><li class="box">072</li><li class="box">073</li><li class="box">074</li><li class="box">075</li><li class="box">076</li><li class="box" data-tier="legendary">077</li><li class="box">078</li><li class="box">079</li><li class="box">080</li></ol><div class="lift" aria-hidden="true"><b>?</b><span>063</span></div></div>
+  </div>
+</div></div>
+    </div>
+  </section>
+
+  <section class="spec" id="bar" aria-labelledby="bar-t">
+    <div class="spec__meta">
+      <h2 id="bar-t">Announcement bar</h2>
+      <p class="small">1920 by 56.</p>
+      <p class="small">Top of qikify.com. Flame tape, one line, one link.</p>
+    </div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.5"><div class="f f--bar bar" data-frame="announcement-bar-1920x56">
+  <p>Black Friday: 100 mystery boxes are open</p><a>Open a box</a>
+</div></div>
+    </div>
+  </section>
+
+  <section class="spec" id="popup" aria-labelledby="popup-t">
+    <div class="spec__meta">
+      <h2 id="popup-t">Website popup</h2>
+      <p class="small">800 by 960.</p>
+      <p class="small">qikify.com entry or exit popup.</p>
+    </div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.6"><div class="f f--popup pop" data-frame="popup-800x960">
+  <div class="tape" aria-hidden="true"><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span></div>
+  <span class="pop__close" aria-hidden="true">&#x2715;</span>
+  <div class="pop__art"><ol class="wall" aria-hidden="true"><li class="box">001</li><li class="box">002</li><li class="box">003</li><li class="box">004</li><li class="box">005</li><li class="box">006</li><li class="box" data-tier="common">007</li><li class="box">008</li><li class="box">009</li><li class="box">010</li><li class="box">011</li><li class="box" data-tier="common">012</li><li class="box">013</li><li class="box">014</li><li class="box">015</li><li class="box">016</li><li class="box">017</li><li class="box">018</li><li class="box">019</li><li class="box">020</li><li class="box">021</li><li class="box">022</li><li class="box" data-tier="medium">023</li><li class="box">024</li><li class="box">025</li><li class="box">026</li><li class="box">027</li><li class="box">028</li><li class="box">029</li><li class="box">030</li><li class="box" data-tier="common">031</li><li class="box">032</li><li class="box">033</li><li class="box">034</li><li class="box">035</li><li class="box">036</li><li class="box">037</li><li class="box" data-tier="rare">038</li><li class="box">039</li><li class="box">040</li></ol><div class="lift" aria-hidden="true"><b>?</b><span>063</span></div></div>
+  <div class="pop__copy">
+    <h2>Your box is in here</h2>
+    <p class="lead">A Qikify app discount, a $50 Amazon card, or three apps.</p>
+    <span class="btn">Open a box</span>
+    <ul class="legend"><li><span class="badge"><span class="pips"><i class="on"></i><i></i><i></i><i></i></span>Common</span></li><li><span class="badge badge--medium"><span class="pips"><i class="on"></i><i class="on"></i><i></i><i></i></span>Medium rare</span></li><li><span class="badge badge--rare"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>Rare</span></li><li><span class="badge badge--legendary"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Legendary</span></li></ul>
+  </div>
+</div></div>
+    </div>
+  </section>
+  <section class="spec" id="tiers" aria-labelledby="tiers-t">
+    <div class="spec__meta"><h2 id="tiers-t">Tier badges</h2><p class="small">Name plus one to four pips, so rarity reads without colour. Rare fills, Legendary fills and gets a double ring.</p></div>
+    <div class="spec__body"><div class="row"><span class="badge"><span class="pips"><i class="on"></i><i></i><i></i><i></i></span>Common</span><span class="badge badge--medium"><span class="pips"><i class="on"></i><i class="on"></i><i></i><i></i></span>Medium rare</span><span class="badge badge--rare"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>Rare</span><span class="badge badge--legendary"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Legendary</span></div><div class="swatches"><div class="swatch" style="--s: var(--tier-common)"><i></i><p><b>Common</b></p><code>oklch(84% 0.025 250)</code></div><div class="swatch" style="--s: var(--tier-medium)"><i></i><p><b>Medium rare</b></p><code>oklch(80% 0.15 158)</code></div><div class="swatch" style="--s: var(--tier-rare)"><i></i><p><b>Rare</b></p><code>oklch(82% 0.15 78)</code></div><div class="swatch" style="--s: var(--tier-legendary)"><i></i><p><b>Legendary</b></p><code>oklch(66% 0.21 32)</code></div><div class="swatch" style="--s: var(--color-paper)"><i></i><p><b>Ground</b></p><code>oklch(15% 0.012 40)</code></div><div class="swatch" style="--s: var(--color-ink)"><i></i><p><b>Ink</b></p><code>oklch(95% 0.01 80)</code></div><div class="swatch" style="--s: var(--color-accent)"><i></i><p><b>Black Friday flame</b></p><code>oklch(66% 0.21 32)</code></div><div class="swatch" style="--s: var(--color-brand)"><i></i><p><b>Qikify brand</b></p><code>drop in the real hex</code></div></div></div>
+  </section>
+  <section class="spec" id="reveal-skin" aria-labelledby="reveal-t">
+    <div class="spec__meta"><h2 id="reveal-t">Reveal skin</h2><p class="small">Mysbox box and animation untouched. Custom: the ground glows in the tier colour, the 10 by 10 ghost wall lights the opened box, tape at the foot, result badge under the title.</p></div>
+    <div class="spec__body">
+      <div class="fit is-export" style="--z: 0.42"><iframe class="f f--reveal" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Qikify Box Reveal&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;The Black Friday skin around the Mysbox unboxing: background, tier badge and result.&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Antonio:wght@700&amp;family=Hanken+Grotesk:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+/* Hallmark · shape: the box wall, a drop page built around 100 numbered boxes · genre: playful · theme: custom · job: try · idea: &quot;a limited drop of exactly 100 numbered boxes, each one a ticket you can see go&quot; · vibe: &quot;Black Friday drop, loud, numbered, rare&quot;
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: headline and action left, the 100-box wall right · nav: a logo slot and one action · footer: a slim bar, brand and terms · imagery: none, the box wall and the Mysbox stage are the picture · signature: the wall of 100 numbered boxes, opened ones lit in their tier colour
+ * axes: dark/display-condensed/chromatic-red · posture: full palette (ground, ink, flame signal, four tier colours with names and pips) · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: S, a box grid could fit any giveaway; numbered 001 to 100 and tied to the four named Qikify tiers so it only reads as this drop */
+/* Hallmark · waive 81 · data-slot mysbox on reveal.html holds the Mysbox unboxing itself · the Mysbox box and animation are kept as is and dev mounts them there */
+/* Hallmark · dismissed 23 · the flame tape is the declared full palette&#x27;s Black Friday band, not accent creep */
+/* Hallmark · dismissed 25 · the Mysbox stage note is a one-line caption inside the frame, held at 30ch to sit centred */
+/* Hallmark · dismissed 40 · the reveal&#x27;s ghost box numbers are aria-hidden texture behind the stage, not text to read */
+/* Hallmark · dismissed F18 · the logo slot is a fixed 120px mark in the nav, sized for Qikify&#x27;s horizontal logo */
+/* Hallmark · brand: Qikify (no spec: qikify.com unreachable from the build container; logo and primary go in data-slot=&quot;logo&quot; and --color-brand) */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* Black Friday ground: warm black, bone ink. Qikify&#x27;s own primary is not locked yet (brand fetch blocked): drop it into --color-brand. */
+  --color-paper: oklch(15% 0.012 40); --color-paper-2: oklch(19% 0.014 40); --color-paper-3: oklch(24% 0.016 40);
+  --color-ink: oklch(95% 0.01 80); --color-ink-2: oklch(82% 0.012 80); --color-muted: oklch(66% 0.012 60);
+  --color-rule: oklch(32% 0.014 40);
+  --color-accent: oklch(66% 0.21 32); --color-accent-ink: oklch(16% 0.012 40); --color-focus: oklch(68% 0.2 32);
+  --color-brand: var(--color-ink);
+  /* Rarity ladder: silver, mint, gold, flame. Each tier also carries a name and 1 to 4 pips, so colour is never the only signal. */
+  --tier-common: oklch(84% 0.025 250); --tier-medium: oklch(80% 0.15 158); --tier-rare: oklch(82% 0.15 78); --tier-legendary: oklch(66% 0.21 32);
+  --tier-ink: oklch(16% 0.012 40);
+  --font-display: &quot;Antonio&quot;, &quot;Arial Narrow&quot;, ui-sans-serif, sans-serif; --font-body: &quot;Hanken Grotesk&quot;, ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 6px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] &gt; img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(&gt; img) &gt; :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+
+/* Type */
+.display { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0; line-height: 1; }
+h1.display { font-size: clamp(3.5rem, 6.2vw, 6.5rem); max-width: 14ch; }
+h2.display { font-size: var(--text-section); line-height: 1.02; max-width: 22ch; }
+.lead { font-size: var(--text-lead); color: var(--color-ink-2); max-width: 34ch; }
+.small { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 52px; padding: 0 var(--space-xl); border: 1px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--tier-ink); font: 700 var(--text-md)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled=&quot;true&quot;] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy=&quot;true&quot;] { cursor: progress; }
+.link { color: var(--color-ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--color-rule); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); }
+.link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .btn, .link { transition: none; } }
+
+/* Logo slot: Qikify&#x27;s real mark replaces the text fallback */
+.logo { display: inline-flex; align-items: center; width: 120px; aspect-ratio: 15 / 4; background: none; font: 700 var(--text-xl)/1 var(--font-body); color: var(--color-brand); text-decoration: none; letter-spacing: -0.02em; }
+.logo &gt; img { object-fit: contain; object-position: left center; }
+.logo:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+
+/* Tier badge: name plus 1 to 4 pips, so rarity reads without colour */
+.badge { --t: var(--tier-common); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 32px; padding: 0 var(--space-sm); border: 1.5px solid var(--t); border-radius: var(--radius-pill); color: var(--t); font: 700 var(--text-sm)/1 var(--font-body); white-space: nowrap; }
+.badge .pips { display: inline-flex; gap: var(--space-3xs); }
+.badge .pips i { width: 7px; height: 7px; transform: rotate(45deg); border: 1.5px solid currentColor; }
+.badge .pips i.on { background: currentColor; }
+.badge--medium { --t: var(--tier-medium); }
+.badge--rare { --t: var(--tier-rare); background: var(--t); color: var(--tier-ink); }
+.badge--legendary { --t: var(--tier-legendary); background: var(--t); color: var(--color-accent-ink); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 4.5px var(--t); }
+
+/* The box wall: 100 numbered boxes */
+.wall { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.box { --t: var(--color-rule); position: relative; aspect-ratio: 1; display: grid; place-items: end start; padding: var(--space-2xs); border: 1px solid var(--color-rule); border-radius: 4px; background: var(--color-paper-2); color: var(--color-muted); font: 400 clamp(0.6875rem, 0.8vw, 0.8125rem)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.box::before { content: &quot;&quot;; position: absolute; inset: 22% 0 auto; border-top: 1px solid var(--color-rule); }
+.box[data-tier] { background: var(--t); border-color: var(--t); color: var(--tier-ink); }
+.box[data-tier]::before { border-color: color-mix(in oklab, var(--tier-ink) 25%, transparent); }
+.box[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.box[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.box[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.box[data-tier=&quot;legendary&quot;] { --t: var(--tier-legendary); color: var(--color-accent-ink); }
+
+.box.is-next { border-color: var(--color-accent); color: var(--color-ink); animation: nudge 2.4s var(--ease-in-out) infinite; }
+@keyframes nudge { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-6deg); } 82% { transform: rotate(5deg); } 88% { transform: rotate(-3deg); } 94% { transform: rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .box.is-next { animation: none; } }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-xs) 0 0; padding: 0; list-style: none; }
+
+/* Black Friday tape: the campaign&#x27;s one pattern */
+.tape { display: flex; gap: var(--space-xl); overflow: hidden; padding: var(--space-xs) 0; background: var(--color-accent); color: var(--color-accent-ink); font: 700 var(--text-md)/1.2 var(--font-display); text-transform: uppercase; white-space: nowrap; }
+.tape span { flex-shrink: 0; }
+
+/* ---------- Landing page ---------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 72px; }
+.nav .small a { color: var(--color-ink-2); }
+
+.hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); align-items: center; min-height: min(728px, calc(100svh - 112px)); padding-block: var(--space-xl) var(--space-2xl); }
+.hero__copy { grid-column: 1 / span 6; display: grid; gap: var(--space-lg); justify-items: start; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-xs); }
+.hero__wall { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+.hero__wall .small { display: flex; justify-content: space-between; gap: var(--space-md); }
+.engine { display: inline-flex; align-items: center; gap: var(--space-xs); }
+
+.section { padding-block: var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.section__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
+
+.ladder { display: grid; margin: 0; padding: 0; list-style: none; }
+.rung { --t: var(--tier-common); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); gap: var(--gap-columns); align-items: center; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.rung:last-child { border-bottom: 1px solid var(--color-rule); }
+.rung &gt; .badge { justify-self: start; }
+.rung__prize { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-3xl); line-height: 1; color: var(--t); }
+.rung__apps { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.rung__apps li { padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); }
+.rung--medium { --t: var(--tier-medium); }
+.rung--rare { --t: var(--tier-rare); }
+.rung--legendary { --t: var(--tier-legendary); }
+.rung--legendary .rung &gt; .badge { justify-self: start; }
+.rung__prize { font-size: var(--text-section); }
+
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; }
+.split__ways { display: grid; gap: var(--space-md); }
+.split__ways h2 { margin-bottom: var(--space-lg); }
+.faq__title { margin-bottom: var(--space-md); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); }
+.way { display: grid; gap: var(--space-md); align-content: start; padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-paper-2); }
+.way h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+
+.stage-preview { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); align-items: center; }
+.stage-preview__copy { display: grid; gap: var(--space-md); justify-items: start; }
+
+.faq { display: grid; }
+.faq details { border-top: 1px solid var(--color-rule); }
+.faq details:last-child { border-bottom: 1px solid var(--color-rule); }
+.faq summary { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); font-weight: 700; font-size: var(--text-lg); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: &quot;+&quot;; color: var(--color-muted); }
+.faq details[open] summary::after { content: &quot;\2212&quot;; }
+.faq summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.faq details p { padding-bottom: var(--space-lg); color: var(--color-ink-2); }
+.tbc { color: var(--tier-rare); }
+
+.close { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; }
+.close__num { font-family: var(--font-display); font-weight: 700; font-size: clamp(10rem, 26vw, 24rem); line-height: 0.8; color: var(--color-accent); font-variant-numeric: tabular-nums; }
+.close__copy { display: grid; gap: var(--space-lg); justify-items: start; padding-bottom: var(--space-md); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+
+@media (max-width: 60rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: var(--space-xl); padding-top: var(--space-md); }
+  .hero__copy, .hero__wall { grid-column: 1; }
+  .rung { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .split, .stage-preview, .close { grid-template-columns: minmax(0, 1fr); }
+  .split { gap: var(--space-2xl); }
+}
+@media (max-width: 40rem) {
+  .nav .small { display: none; }
+  .wall { gap: var(--space-2xs); }
+  .way { padding: var(--space-lg); }
+}
+
+/* ---------- Reveal page (custom skin around the Mysbox stage) ---------- */
+.reveal { --t: var(--tier-legendary); position: relative; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; isolation: isolate; background: radial-gradient(60% 55% at 50% 52%, color-mix(in oklab, var(--t) 30%, var(--color-paper)), var(--color-paper) 70%); }
+.reveal[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.reveal[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.reveal[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.reveal__ghost { --cell: min(calc((100svh - var(--space-xl)) / 10 - var(--space-sm)), calc((100vw - var(--space-xl)) / 10 - var(--space-sm))); position: absolute; inset: 0; z-index: -1; display: grid; grid-template-columns: repeat(10, var(--cell)); grid-auto-rows: var(--cell); justify-content: center; align-content: center; gap: var(--space-sm); overflow: hidden; pointer-events: none; mask-image: linear-gradient(var(--color-paper) 50%, transparent 66%); }
+.reveal__ghost span { display: grid; place-items: end start; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--color-rule); border-radius: 4px; color: var(--color-muted); font: 400 var(--text-xs)/1 var(--font-display); opacity: 0.28; }
+.reveal__ghost span.is-this { opacity: 1; border: 2px solid var(--t); color: var(--t); }
+.reveal .nav .small { color: var(--color-ink-2); }
+.reveal__main { display: grid; justify-items: center; align-content: center; gap: var(--space-lg); padding: var(--space-xl) var(--gutter); text-align: center; }
+.mysbox-stage { width: min(560px, 100%); aspect-ratio: 1; display: grid; place-items: center; border: 1.5px dashed color-mix(in oklab, var(--t) 60%, var(--color-rule)); border-radius: var(--radius-card); background: color-mix(in oklab, var(--color-paper) 80%, transparent); color: var(--color-muted); }
+.mysbox-stage p { max-width: 30ch; }
+.stage-frame { pointer-events: none; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); }
+.stage-frame:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.reveal__main .mysbox-stage { width: min(420px, 100%); }
+.result { display: grid; justify-items: center; gap: var(--space-sm); }
+.result .display { font-size: var(--text-display-s); max-width: 18ch; }
+.tier-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xs); padding: var(--space-md); }
+.tier-switch button { min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); cursor: pointer; transition: border-color var(--dur-short) var(--ease-out); }
+.tier-switch button:hover { border-color: var(--color-ink-2); }
+.tier-switch button[aria-pressed=&quot;true&quot;] { border-color: var(--color-ink); color: var(--color-ink); }
+.tier-switch button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.box.is-gone { background: transparent; border-style: dashed; border-color: var(--color-accent); color: transparent; }
+.box.is-gone::before { border: 0; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;reveal&quot; id=&quot;reveal&quot; data-tier=&quot;rare&quot;&gt;
+  &lt;div class=&quot;reveal__ghost&quot; aria-hidden=&quot;true&quot; id=&quot;ghost&quot;&gt;&lt;/div&gt;
+
+  &lt;header class=&quot;container nav&quot;&gt;
+    &lt;a class=&quot;logo&quot; href=&quot;./index.html&quot; data-slot=&quot;logo&quot; data-alt=&quot;Qikify&quot;&gt;Qikify&lt;/a&gt;
+    &lt;p class=&quot;small&quot;&gt;Box &lt;span class=&quot;num&quot; id=&quot;boxno&quot;&gt;047&lt;/span&gt; of 100&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;reveal__main&quot;&gt;
+    &lt;div class=&quot;mysbox-stage&quot; data-slot=&quot;mysbox&quot; data-alt=&quot;Mysbox unboxing&quot;&gt;
+      &lt;p class=&quot;small&quot;&gt;Mysbox stage: the box and its animation, unchanged.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;result&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h1 class=&quot;display&quot; id=&quot;prize&quot;&gt;$50 Amazon gift card&lt;/h1&gt;
+      &lt;span class=&quot;badge badge--rare&quot; id=&quot;badge&quot;&gt;&lt;span class=&quot;pips&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span id=&quot;tiername&quot;&gt;Rare&lt;/span&gt;&lt;/span&gt;
+      &lt;p class=&quot;lead&quot; id=&quot;note&quot;&gt;We will email the code to you.&lt;/p&gt;
+      &lt;a class=&quot;btn&quot; href=&quot;#claim&quot; id=&quot;claim&quot;&gt;Claim it&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tape&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;/div&gt;
+
+&lt;/main&gt;
+  &lt;div class=&quot;tier-switch&quot; role=&quot;group&quot; aria-label=&quot;Preview a tier&quot; id=&quot;switch&quot;&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;common&quot; aria-pressed=&quot;false&quot;&gt;Common&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;medium&quot; aria-pressed=&quot;false&quot;&gt;Medium rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;rare&quot; aria-pressed=&quot;true&quot;&gt;Rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;legendary&quot; aria-pressed=&quot;false&quot;&gt;Legendary&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+(function () {
+  const T = {
+    common: { name: &#x27;Common&#x27;, pips: 1, cls: &#x27;&#x27;, prize: &#x27;Mysbox discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    medium: { name: &#x27;Medium rare&#x27;, pips: 2, cls: &#x27;badge--medium&#x27;, prize: &#x27;Tepo discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    rare: { name: &#x27;Rare&#x27;, pips: 3, cls: &#x27;badge--rare&#x27;, prize: &#x27;$50 Amazon gift card&#x27;, note: &#x27;We will email the code to you.&#x27; },
+    legendary: { name: &#x27;Legendary&#x27;, pips: 4, cls: &#x27;badge--legendary&#x27;, prize: &#x27;Three apps, your pick&#x27;, note: &#x27;Choose any three Qikify apps.&#x27; }
+  };
+  const root = document.getElementById(&#x27;reveal&#x27;);
+  const ghost = document.getElementById(&#x27;ghost&#x27;);
+  function fill(n) {
+    ghost.textContent = &#x27;&#x27;;
+    for (let i = 1; i &lt;= 100; i++) {
+      const sp = document.createElement(&#x27;span&#x27;);
+      sp.textContent = String(i).padStart(3, &#x27;0&#x27;);
+      if (i === n) sp.className = &#x27;is-this&#x27;;
+      ghost.appendChild(sp);
+    }
+  }
+  function set(t) {
+    const d = T[t]; if (!d) return;
+    root.dataset.tier = t;
+    const b = document.getElementById(&#x27;badge&#x27;);
+    b.className = &#x27;badge &#x27; + d.cls;
+    b.querySelectorAll(&#x27;.pips i&#x27;).forEach((p, i) =&gt; p.classList.toggle(&#x27;on&#x27;, i &lt; d.pips));
+    document.getElementById(&#x27;tiername&#x27;).textContent = d.name;
+    document.getElementById(&#x27;prize&#x27;).textContent = d.prize;
+    document.getElementById(&#x27;note&#x27;).textContent = d.note;
+    document.querySelectorAll(&#x27;#switch button&#x27;).forEach((x) =&gt; x.setAttribute(&#x27;aria-pressed&#x27;, String(x.dataset.t === t)));
+  }
+  document.getElementById(&#x27;switch&#x27;).addEventListener(&#x27;click&#x27;, (e) =&gt; { const b = e.target.closest(&#x27;button&#x27;); if (b) set(b.dataset.t); });
+  const q = new URLSearchParams(&#x27;embed&amp;tier=common&amp;box=063&#x27;);
+  if (q.get(&#x27;tier&#x27;)) set(q.get(&#x27;tier&#x27;));
+  const box = parseInt(q.get(&#x27;box&#x27;) || &#x27;47&#x27;, 10);
+  document.getElementById(&#x27;boxno&#x27;).textContent = String(box).padStart(3, &#x27;0&#x27;);
+  fill(box);
+  if (q.has(&#x27;embed&#x27;)) document.getElementById(&#x27;switch&#x27;).hidden = true;
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Reveal background, common" tabindex="-1" inert data-frame="reveal-common-1920x1080"></iframe></div>
+      <div class="fit" style="--z: 0.42"><iframe class="f f--reveal" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Qikify Box Reveal&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;The Black Friday skin around the Mysbox unboxing: background, tier badge and result.&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Antonio:wght@700&amp;family=Hanken+Grotesk:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+/* Hallmark · shape: the box wall, a drop page built around 100 numbered boxes · genre: playful · theme: custom · job: try · idea: &quot;a limited drop of exactly 100 numbered boxes, each one a ticket you can see go&quot; · vibe: &quot;Black Friday drop, loud, numbered, rare&quot;
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: headline and action left, the 100-box wall right · nav: a logo slot and one action · footer: a slim bar, brand and terms · imagery: none, the box wall and the Mysbox stage are the picture · signature: the wall of 100 numbered boxes, opened ones lit in their tier colour
+ * axes: dark/display-condensed/chromatic-red · posture: full palette (ground, ink, flame signal, four tier colours with names and pips) · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: S, a box grid could fit any giveaway; numbered 001 to 100 and tied to the four named Qikify tiers so it only reads as this drop */
+/* Hallmark · waive 81 · data-slot mysbox on reveal.html holds the Mysbox unboxing itself · the Mysbox box and animation are kept as is and dev mounts them there */
+/* Hallmark · dismissed 23 · the flame tape is the declared full palette&#x27;s Black Friday band, not accent creep */
+/* Hallmark · dismissed 25 · the Mysbox stage note is a one-line caption inside the frame, held at 30ch to sit centred */
+/* Hallmark · dismissed 40 · the reveal&#x27;s ghost box numbers are aria-hidden texture behind the stage, not text to read */
+/* Hallmark · dismissed F18 · the logo slot is a fixed 120px mark in the nav, sized for Qikify&#x27;s horizontal logo */
+/* Hallmark · brand: Qikify (no spec: qikify.com unreachable from the build container; logo and primary go in data-slot=&quot;logo&quot; and --color-brand) */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* Black Friday ground: warm black, bone ink. Qikify&#x27;s own primary is not locked yet (brand fetch blocked): drop it into --color-brand. */
+  --color-paper: oklch(15% 0.012 40); --color-paper-2: oklch(19% 0.014 40); --color-paper-3: oklch(24% 0.016 40);
+  --color-ink: oklch(95% 0.01 80); --color-ink-2: oklch(82% 0.012 80); --color-muted: oklch(66% 0.012 60);
+  --color-rule: oklch(32% 0.014 40);
+  --color-accent: oklch(66% 0.21 32); --color-accent-ink: oklch(16% 0.012 40); --color-focus: oklch(68% 0.2 32);
+  --color-brand: var(--color-ink);
+  /* Rarity ladder: silver, mint, gold, flame. Each tier also carries a name and 1 to 4 pips, so colour is never the only signal. */
+  --tier-common: oklch(84% 0.025 250); --tier-medium: oklch(80% 0.15 158); --tier-rare: oklch(82% 0.15 78); --tier-legendary: oklch(66% 0.21 32);
+  --tier-ink: oklch(16% 0.012 40);
+  --font-display: &quot;Antonio&quot;, &quot;Arial Narrow&quot;, ui-sans-serif, sans-serif; --font-body: &quot;Hanken Grotesk&quot;, ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 6px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] &gt; img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(&gt; img) &gt; :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+
+/* Type */
+.display { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0; line-height: 1; }
+h1.display { font-size: clamp(3.5rem, 6.2vw, 6.5rem); max-width: 14ch; }
+h2.display { font-size: var(--text-section); line-height: 1.02; max-width: 22ch; }
+.lead { font-size: var(--text-lead); color: var(--color-ink-2); max-width: 34ch; }
+.small { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 52px; padding: 0 var(--space-xl); border: 1px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--tier-ink); font: 700 var(--text-md)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled=&quot;true&quot;] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy=&quot;true&quot;] { cursor: progress; }
+.link { color: var(--color-ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--color-rule); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); }
+.link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .btn, .link { transition: none; } }
+
+/* Logo slot: Qikify&#x27;s real mark replaces the text fallback */
+.logo { display: inline-flex; align-items: center; width: 120px; aspect-ratio: 15 / 4; background: none; font: 700 var(--text-xl)/1 var(--font-body); color: var(--color-brand); text-decoration: none; letter-spacing: -0.02em; }
+.logo &gt; img { object-fit: contain; object-position: left center; }
+.logo:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+
+/* Tier badge: name plus 1 to 4 pips, so rarity reads without colour */
+.badge { --t: var(--tier-common); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 32px; padding: 0 var(--space-sm); border: 1.5px solid var(--t); border-radius: var(--radius-pill); color: var(--t); font: 700 var(--text-sm)/1 var(--font-body); white-space: nowrap; }
+.badge .pips { display: inline-flex; gap: var(--space-3xs); }
+.badge .pips i { width: 7px; height: 7px; transform: rotate(45deg); border: 1.5px solid currentColor; }
+.badge .pips i.on { background: currentColor; }
+.badge--medium { --t: var(--tier-medium); }
+.badge--rare { --t: var(--tier-rare); background: var(--t); color: var(--tier-ink); }
+.badge--legendary { --t: var(--tier-legendary); background: var(--t); color: var(--color-accent-ink); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 4.5px var(--t); }
+
+/* The box wall: 100 numbered boxes */
+.wall { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.box { --t: var(--color-rule); position: relative; aspect-ratio: 1; display: grid; place-items: end start; padding: var(--space-2xs); border: 1px solid var(--color-rule); border-radius: 4px; background: var(--color-paper-2); color: var(--color-muted); font: 400 clamp(0.6875rem, 0.8vw, 0.8125rem)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.box::before { content: &quot;&quot;; position: absolute; inset: 22% 0 auto; border-top: 1px solid var(--color-rule); }
+.box[data-tier] { background: var(--t); border-color: var(--t); color: var(--tier-ink); }
+.box[data-tier]::before { border-color: color-mix(in oklab, var(--tier-ink) 25%, transparent); }
+.box[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.box[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.box[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.box[data-tier=&quot;legendary&quot;] { --t: var(--tier-legendary); color: var(--color-accent-ink); }
+
+.box.is-next { border-color: var(--color-accent); color: var(--color-ink); animation: nudge 2.4s var(--ease-in-out) infinite; }
+@keyframes nudge { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-6deg); } 82% { transform: rotate(5deg); } 88% { transform: rotate(-3deg); } 94% { transform: rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .box.is-next { animation: none; } }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-xs) 0 0; padding: 0; list-style: none; }
+
+/* Black Friday tape: the campaign&#x27;s one pattern */
+.tape { display: flex; gap: var(--space-xl); overflow: hidden; padding: var(--space-xs) 0; background: var(--color-accent); color: var(--color-accent-ink); font: 700 var(--text-md)/1.2 var(--font-display); text-transform: uppercase; white-space: nowrap; }
+.tape span { flex-shrink: 0; }
+
+/* ---------- Landing page ---------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 72px; }
+.nav .small a { color: var(--color-ink-2); }
+
+.hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); align-items: center; min-height: min(728px, calc(100svh - 112px)); padding-block: var(--space-xl) var(--space-2xl); }
+.hero__copy { grid-column: 1 / span 6; display: grid; gap: var(--space-lg); justify-items: start; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-xs); }
+.hero__wall { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+.hero__wall .small { display: flex; justify-content: space-between; gap: var(--space-md); }
+.engine { display: inline-flex; align-items: center; gap: var(--space-xs); }
+
+.section { padding-block: var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.section__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
+
+.ladder { display: grid; margin: 0; padding: 0; list-style: none; }
+.rung { --t: var(--tier-common); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); gap: var(--gap-columns); align-items: center; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.rung:last-child { border-bottom: 1px solid var(--color-rule); }
+.rung &gt; .badge { justify-self: start; }
+.rung__prize { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-3xl); line-height: 1; color: var(--t); }
+.rung__apps { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.rung__apps li { padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); }
+.rung--medium { --t: var(--tier-medium); }
+.rung--rare { --t: var(--tier-rare); }
+.rung--legendary { --t: var(--tier-legendary); }
+.rung--legendary .rung &gt; .badge { justify-self: start; }
+.rung__prize { font-size: var(--text-section); }
+
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; }
+.split__ways { display: grid; gap: var(--space-md); }
+.split__ways h2 { margin-bottom: var(--space-lg); }
+.faq__title { margin-bottom: var(--space-md); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); }
+.way { display: grid; gap: var(--space-md); align-content: start; padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-paper-2); }
+.way h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+
+.stage-preview { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); align-items: center; }
+.stage-preview__copy { display: grid; gap: var(--space-md); justify-items: start; }
+
+.faq { display: grid; }
+.faq details { border-top: 1px solid var(--color-rule); }
+.faq details:last-child { border-bottom: 1px solid var(--color-rule); }
+.faq summary { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); font-weight: 700; font-size: var(--text-lg); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: &quot;+&quot;; color: var(--color-muted); }
+.faq details[open] summary::after { content: &quot;\2212&quot;; }
+.faq summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.faq details p { padding-bottom: var(--space-lg); color: var(--color-ink-2); }
+.tbc { color: var(--tier-rare); }
+
+.close { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; }
+.close__num { font-family: var(--font-display); font-weight: 700; font-size: clamp(10rem, 26vw, 24rem); line-height: 0.8; color: var(--color-accent); font-variant-numeric: tabular-nums; }
+.close__copy { display: grid; gap: var(--space-lg); justify-items: start; padding-bottom: var(--space-md); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+
+@media (max-width: 60rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: var(--space-xl); padding-top: var(--space-md); }
+  .hero__copy, .hero__wall { grid-column: 1; }
+  .rung { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .split, .stage-preview, .close { grid-template-columns: minmax(0, 1fr); }
+  .split { gap: var(--space-2xl); }
+}
+@media (max-width: 40rem) {
+  .nav .small { display: none; }
+  .wall { gap: var(--space-2xs); }
+  .way { padding: var(--space-lg); }
+}
+
+/* ---------- Reveal page (custom skin around the Mysbox stage) ---------- */
+.reveal { --t: var(--tier-legendary); position: relative; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; isolation: isolate; background: radial-gradient(60% 55% at 50% 52%, color-mix(in oklab, var(--t) 30%, var(--color-paper)), var(--color-paper) 70%); }
+.reveal[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.reveal[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.reveal[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.reveal__ghost { --cell: min(calc((100svh - var(--space-xl)) / 10 - var(--space-sm)), calc((100vw - var(--space-xl)) / 10 - var(--space-sm))); position: absolute; inset: 0; z-index: -1; display: grid; grid-template-columns: repeat(10, var(--cell)); grid-auto-rows: var(--cell); justify-content: center; align-content: center; gap: var(--space-sm); overflow: hidden; pointer-events: none; mask-image: linear-gradient(var(--color-paper) 50%, transparent 66%); }
+.reveal__ghost span { display: grid; place-items: end start; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--color-rule); border-radius: 4px; color: var(--color-muted); font: 400 var(--text-xs)/1 var(--font-display); opacity: 0.28; }
+.reveal__ghost span.is-this { opacity: 1; border: 2px solid var(--t); color: var(--t); }
+.reveal .nav .small { color: var(--color-ink-2); }
+.reveal__main { display: grid; justify-items: center; align-content: center; gap: var(--space-lg); padding: var(--space-xl) var(--gutter); text-align: center; }
+.mysbox-stage { width: min(560px, 100%); aspect-ratio: 1; display: grid; place-items: center; border: 1.5px dashed color-mix(in oklab, var(--t) 60%, var(--color-rule)); border-radius: var(--radius-card); background: color-mix(in oklab, var(--color-paper) 80%, transparent); color: var(--color-muted); }
+.mysbox-stage p { max-width: 30ch; }
+.stage-frame { pointer-events: none; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); }
+.stage-frame:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.reveal__main .mysbox-stage { width: min(420px, 100%); }
+.result { display: grid; justify-items: center; gap: var(--space-sm); }
+.result .display { font-size: var(--text-display-s); max-width: 18ch; }
+.tier-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xs); padding: var(--space-md); }
+.tier-switch button { min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); cursor: pointer; transition: border-color var(--dur-short) var(--ease-out); }
+.tier-switch button:hover { border-color: var(--color-ink-2); }
+.tier-switch button[aria-pressed=&quot;true&quot;] { border-color: var(--color-ink); color: var(--color-ink); }
+.tier-switch button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.box.is-gone { background: transparent; border-style: dashed; border-color: var(--color-accent); color: transparent; }
+.box.is-gone::before { border: 0; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;reveal&quot; id=&quot;reveal&quot; data-tier=&quot;rare&quot;&gt;
+  &lt;div class=&quot;reveal__ghost&quot; aria-hidden=&quot;true&quot; id=&quot;ghost&quot;&gt;&lt;/div&gt;
+
+  &lt;header class=&quot;container nav&quot;&gt;
+    &lt;a class=&quot;logo&quot; href=&quot;./index.html&quot; data-slot=&quot;logo&quot; data-alt=&quot;Qikify&quot;&gt;Qikify&lt;/a&gt;
+    &lt;p class=&quot;small&quot;&gt;Box &lt;span class=&quot;num&quot; id=&quot;boxno&quot;&gt;047&lt;/span&gt; of 100&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;reveal__main&quot;&gt;
+    &lt;div class=&quot;mysbox-stage&quot; data-slot=&quot;mysbox&quot; data-alt=&quot;Mysbox unboxing&quot;&gt;
+      &lt;p class=&quot;small&quot;&gt;Mysbox stage: the box and its animation, unchanged.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;result&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h1 class=&quot;display&quot; id=&quot;prize&quot;&gt;$50 Amazon gift card&lt;/h1&gt;
+      &lt;span class=&quot;badge badge--rare&quot; id=&quot;badge&quot;&gt;&lt;span class=&quot;pips&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span id=&quot;tiername&quot;&gt;Rare&lt;/span&gt;&lt;/span&gt;
+      &lt;p class=&quot;lead&quot; id=&quot;note&quot;&gt;We will email the code to you.&lt;/p&gt;
+      &lt;a class=&quot;btn&quot; href=&quot;#claim&quot; id=&quot;claim&quot;&gt;Claim it&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tape&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;/div&gt;
+
+&lt;/main&gt;
+  &lt;div class=&quot;tier-switch&quot; role=&quot;group&quot; aria-label=&quot;Preview a tier&quot; id=&quot;switch&quot;&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;common&quot; aria-pressed=&quot;false&quot;&gt;Common&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;medium&quot; aria-pressed=&quot;false&quot;&gt;Medium rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;rare&quot; aria-pressed=&quot;true&quot;&gt;Rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;legendary&quot; aria-pressed=&quot;false&quot;&gt;Legendary&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+(function () {
+  const T = {
+    common: { name: &#x27;Common&#x27;, pips: 1, cls: &#x27;&#x27;, prize: &#x27;Mysbox discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    medium: { name: &#x27;Medium rare&#x27;, pips: 2, cls: &#x27;badge--medium&#x27;, prize: &#x27;Tepo discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    rare: { name: &#x27;Rare&#x27;, pips: 3, cls: &#x27;badge--rare&#x27;, prize: &#x27;$50 Amazon gift card&#x27;, note: &#x27;We will email the code to you.&#x27; },
+    legendary: { name: &#x27;Legendary&#x27;, pips: 4, cls: &#x27;badge--legendary&#x27;, prize: &#x27;Three apps, your pick&#x27;, note: &#x27;Choose any three Qikify apps.&#x27; }
+  };
+  const root = document.getElementById(&#x27;reveal&#x27;);
+  const ghost = document.getElementById(&#x27;ghost&#x27;);
+  function fill(n) {
+    ghost.textContent = &#x27;&#x27;;
+    for (let i = 1; i &lt;= 100; i++) {
+      const sp = document.createElement(&#x27;span&#x27;);
+      sp.textContent = String(i).padStart(3, &#x27;0&#x27;);
+      if (i === n) sp.className = &#x27;is-this&#x27;;
+      ghost.appendChild(sp);
+    }
+  }
+  function set(t) {
+    const d = T[t]; if (!d) return;
+    root.dataset.tier = t;
+    const b = document.getElementById(&#x27;badge&#x27;);
+    b.className = &#x27;badge &#x27; + d.cls;
+    b.querySelectorAll(&#x27;.pips i&#x27;).forEach((p, i) =&gt; p.classList.toggle(&#x27;on&#x27;, i &lt; d.pips));
+    document.getElementById(&#x27;tiername&#x27;).textContent = d.name;
+    document.getElementById(&#x27;prize&#x27;).textContent = d.prize;
+    document.getElementById(&#x27;note&#x27;).textContent = d.note;
+    document.querySelectorAll(&#x27;#switch button&#x27;).forEach((x) =&gt; x.setAttribute(&#x27;aria-pressed&#x27;, String(x.dataset.t === t)));
+  }
+  document.getElementById(&#x27;switch&#x27;).addEventListener(&#x27;click&#x27;, (e) =&gt; { const b = e.target.closest(&#x27;button&#x27;); if (b) set(b.dataset.t); });
+  const q = new URLSearchParams(&#x27;embed&amp;tier=medium&amp;box=063&#x27;);
+  if (q.get(&#x27;tier&#x27;)) set(q.get(&#x27;tier&#x27;));
+  const box = parseInt(q.get(&#x27;box&#x27;) || &#x27;47&#x27;, 10);
+  document.getElementById(&#x27;boxno&#x27;).textContent = String(box).padStart(3, &#x27;0&#x27;);
+  fill(box);
+  if (q.has(&#x27;embed&#x27;)) document.getElementById(&#x27;switch&#x27;).hidden = true;
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Reveal background, medium" tabindex="-1" inert data-frame="reveal-medium-1920x1080"></iframe></div>
+      <div class="fit" style="--z: 0.42"><iframe class="f f--reveal" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Qikify Box Reveal&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;The Black Friday skin around the Mysbox unboxing: background, tier badge and result.&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Antonio:wght@700&amp;family=Hanken+Grotesk:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+/* Hallmark · shape: the box wall, a drop page built around 100 numbered boxes · genre: playful · theme: custom · job: try · idea: &quot;a limited drop of exactly 100 numbered boxes, each one a ticket you can see go&quot; · vibe: &quot;Black Friday drop, loud, numbered, rare&quot;
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: headline and action left, the 100-box wall right · nav: a logo slot and one action · footer: a slim bar, brand and terms · imagery: none, the box wall and the Mysbox stage are the picture · signature: the wall of 100 numbered boxes, opened ones lit in their tier colour
+ * axes: dark/display-condensed/chromatic-red · posture: full palette (ground, ink, flame signal, four tier colours with names and pips) · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: S, a box grid could fit any giveaway; numbered 001 to 100 and tied to the four named Qikify tiers so it only reads as this drop */
+/* Hallmark · waive 81 · data-slot mysbox on reveal.html holds the Mysbox unboxing itself · the Mysbox box and animation are kept as is and dev mounts them there */
+/* Hallmark · dismissed 23 · the flame tape is the declared full palette&#x27;s Black Friday band, not accent creep */
+/* Hallmark · dismissed 25 · the Mysbox stage note is a one-line caption inside the frame, held at 30ch to sit centred */
+/* Hallmark · dismissed 40 · the reveal&#x27;s ghost box numbers are aria-hidden texture behind the stage, not text to read */
+/* Hallmark · dismissed F18 · the logo slot is a fixed 120px mark in the nav, sized for Qikify&#x27;s horizontal logo */
+/* Hallmark · brand: Qikify (no spec: qikify.com unreachable from the build container; logo and primary go in data-slot=&quot;logo&quot; and --color-brand) */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* Black Friday ground: warm black, bone ink. Qikify&#x27;s own primary is not locked yet (brand fetch blocked): drop it into --color-brand. */
+  --color-paper: oklch(15% 0.012 40); --color-paper-2: oklch(19% 0.014 40); --color-paper-3: oklch(24% 0.016 40);
+  --color-ink: oklch(95% 0.01 80); --color-ink-2: oklch(82% 0.012 80); --color-muted: oklch(66% 0.012 60);
+  --color-rule: oklch(32% 0.014 40);
+  --color-accent: oklch(66% 0.21 32); --color-accent-ink: oklch(16% 0.012 40); --color-focus: oklch(68% 0.2 32);
+  --color-brand: var(--color-ink);
+  /* Rarity ladder: silver, mint, gold, flame. Each tier also carries a name and 1 to 4 pips, so colour is never the only signal. */
+  --tier-common: oklch(84% 0.025 250); --tier-medium: oklch(80% 0.15 158); --tier-rare: oklch(82% 0.15 78); --tier-legendary: oklch(66% 0.21 32);
+  --tier-ink: oklch(16% 0.012 40);
+  --font-display: &quot;Antonio&quot;, &quot;Arial Narrow&quot;, ui-sans-serif, sans-serif; --font-body: &quot;Hanken Grotesk&quot;, ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 6px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] &gt; img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(&gt; img) &gt; :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+
+/* Type */
+.display { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0; line-height: 1; }
+h1.display { font-size: clamp(3.5rem, 6.2vw, 6.5rem); max-width: 14ch; }
+h2.display { font-size: var(--text-section); line-height: 1.02; max-width: 22ch; }
+.lead { font-size: var(--text-lead); color: var(--color-ink-2); max-width: 34ch; }
+.small { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 52px; padding: 0 var(--space-xl); border: 1px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--tier-ink); font: 700 var(--text-md)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled=&quot;true&quot;] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy=&quot;true&quot;] { cursor: progress; }
+.link { color: var(--color-ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--color-rule); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); }
+.link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .btn, .link { transition: none; } }
+
+/* Logo slot: Qikify&#x27;s real mark replaces the text fallback */
+.logo { display: inline-flex; align-items: center; width: 120px; aspect-ratio: 15 / 4; background: none; font: 700 var(--text-xl)/1 var(--font-body); color: var(--color-brand); text-decoration: none; letter-spacing: -0.02em; }
+.logo &gt; img { object-fit: contain; object-position: left center; }
+.logo:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+
+/* Tier badge: name plus 1 to 4 pips, so rarity reads without colour */
+.badge { --t: var(--tier-common); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 32px; padding: 0 var(--space-sm); border: 1.5px solid var(--t); border-radius: var(--radius-pill); color: var(--t); font: 700 var(--text-sm)/1 var(--font-body); white-space: nowrap; }
+.badge .pips { display: inline-flex; gap: var(--space-3xs); }
+.badge .pips i { width: 7px; height: 7px; transform: rotate(45deg); border: 1.5px solid currentColor; }
+.badge .pips i.on { background: currentColor; }
+.badge--medium { --t: var(--tier-medium); }
+.badge--rare { --t: var(--tier-rare); background: var(--t); color: var(--tier-ink); }
+.badge--legendary { --t: var(--tier-legendary); background: var(--t); color: var(--color-accent-ink); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 4.5px var(--t); }
+
+/* The box wall: 100 numbered boxes */
+.wall { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.box { --t: var(--color-rule); position: relative; aspect-ratio: 1; display: grid; place-items: end start; padding: var(--space-2xs); border: 1px solid var(--color-rule); border-radius: 4px; background: var(--color-paper-2); color: var(--color-muted); font: 400 clamp(0.6875rem, 0.8vw, 0.8125rem)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.box::before { content: &quot;&quot;; position: absolute; inset: 22% 0 auto; border-top: 1px solid var(--color-rule); }
+.box[data-tier] { background: var(--t); border-color: var(--t); color: var(--tier-ink); }
+.box[data-tier]::before { border-color: color-mix(in oklab, var(--tier-ink) 25%, transparent); }
+.box[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.box[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.box[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.box[data-tier=&quot;legendary&quot;] { --t: var(--tier-legendary); color: var(--color-accent-ink); }
+
+.box.is-next { border-color: var(--color-accent); color: var(--color-ink); animation: nudge 2.4s var(--ease-in-out) infinite; }
+@keyframes nudge { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-6deg); } 82% { transform: rotate(5deg); } 88% { transform: rotate(-3deg); } 94% { transform: rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .box.is-next { animation: none; } }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-xs) 0 0; padding: 0; list-style: none; }
+
+/* Black Friday tape: the campaign&#x27;s one pattern */
+.tape { display: flex; gap: var(--space-xl); overflow: hidden; padding: var(--space-xs) 0; background: var(--color-accent); color: var(--color-accent-ink); font: 700 var(--text-md)/1.2 var(--font-display); text-transform: uppercase; white-space: nowrap; }
+.tape span { flex-shrink: 0; }
+
+/* ---------- Landing page ---------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 72px; }
+.nav .small a { color: var(--color-ink-2); }
+
+.hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); align-items: center; min-height: min(728px, calc(100svh - 112px)); padding-block: var(--space-xl) var(--space-2xl); }
+.hero__copy { grid-column: 1 / span 6; display: grid; gap: var(--space-lg); justify-items: start; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-xs); }
+.hero__wall { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+.hero__wall .small { display: flex; justify-content: space-between; gap: var(--space-md); }
+.engine { display: inline-flex; align-items: center; gap: var(--space-xs); }
+
+.section { padding-block: var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.section__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
+
+.ladder { display: grid; margin: 0; padding: 0; list-style: none; }
+.rung { --t: var(--tier-common); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); gap: var(--gap-columns); align-items: center; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.rung:last-child { border-bottom: 1px solid var(--color-rule); }
+.rung &gt; .badge { justify-self: start; }
+.rung__prize { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-3xl); line-height: 1; color: var(--t); }
+.rung__apps { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.rung__apps li { padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); }
+.rung--medium { --t: var(--tier-medium); }
+.rung--rare { --t: var(--tier-rare); }
+.rung--legendary { --t: var(--tier-legendary); }
+.rung--legendary .rung &gt; .badge { justify-self: start; }
+.rung__prize { font-size: var(--text-section); }
+
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; }
+.split__ways { display: grid; gap: var(--space-md); }
+.split__ways h2 { margin-bottom: var(--space-lg); }
+.faq__title { margin-bottom: var(--space-md); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); }
+.way { display: grid; gap: var(--space-md); align-content: start; padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-paper-2); }
+.way h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+
+.stage-preview { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); align-items: center; }
+.stage-preview__copy { display: grid; gap: var(--space-md); justify-items: start; }
+
+.faq { display: grid; }
+.faq details { border-top: 1px solid var(--color-rule); }
+.faq details:last-child { border-bottom: 1px solid var(--color-rule); }
+.faq summary { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); font-weight: 700; font-size: var(--text-lg); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: &quot;+&quot;; color: var(--color-muted); }
+.faq details[open] summary::after { content: &quot;\2212&quot;; }
+.faq summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.faq details p { padding-bottom: var(--space-lg); color: var(--color-ink-2); }
+.tbc { color: var(--tier-rare); }
+
+.close { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; }
+.close__num { font-family: var(--font-display); font-weight: 700; font-size: clamp(10rem, 26vw, 24rem); line-height: 0.8; color: var(--color-accent); font-variant-numeric: tabular-nums; }
+.close__copy { display: grid; gap: var(--space-lg); justify-items: start; padding-bottom: var(--space-md); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+
+@media (max-width: 60rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: var(--space-xl); padding-top: var(--space-md); }
+  .hero__copy, .hero__wall { grid-column: 1; }
+  .rung { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .split, .stage-preview, .close { grid-template-columns: minmax(0, 1fr); }
+  .split { gap: var(--space-2xl); }
+}
+@media (max-width: 40rem) {
+  .nav .small { display: none; }
+  .wall { gap: var(--space-2xs); }
+  .way { padding: var(--space-lg); }
+}
+
+/* ---------- Reveal page (custom skin around the Mysbox stage) ---------- */
+.reveal { --t: var(--tier-legendary); position: relative; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; isolation: isolate; background: radial-gradient(60% 55% at 50% 52%, color-mix(in oklab, var(--t) 30%, var(--color-paper)), var(--color-paper) 70%); }
+.reveal[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.reveal[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.reveal[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.reveal__ghost { --cell: min(calc((100svh - var(--space-xl)) / 10 - var(--space-sm)), calc((100vw - var(--space-xl)) / 10 - var(--space-sm))); position: absolute; inset: 0; z-index: -1; display: grid; grid-template-columns: repeat(10, var(--cell)); grid-auto-rows: var(--cell); justify-content: center; align-content: center; gap: var(--space-sm); overflow: hidden; pointer-events: none; mask-image: linear-gradient(var(--color-paper) 50%, transparent 66%); }
+.reveal__ghost span { display: grid; place-items: end start; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--color-rule); border-radius: 4px; color: var(--color-muted); font: 400 var(--text-xs)/1 var(--font-display); opacity: 0.28; }
+.reveal__ghost span.is-this { opacity: 1; border: 2px solid var(--t); color: var(--t); }
+.reveal .nav .small { color: var(--color-ink-2); }
+.reveal__main { display: grid; justify-items: center; align-content: center; gap: var(--space-lg); padding: var(--space-xl) var(--gutter); text-align: center; }
+.mysbox-stage { width: min(560px, 100%); aspect-ratio: 1; display: grid; place-items: center; border: 1.5px dashed color-mix(in oklab, var(--t) 60%, var(--color-rule)); border-radius: var(--radius-card); background: color-mix(in oklab, var(--color-paper) 80%, transparent); color: var(--color-muted); }
+.mysbox-stage p { max-width: 30ch; }
+.stage-frame { pointer-events: none; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); }
+.stage-frame:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.reveal__main .mysbox-stage { width: min(420px, 100%); }
+.result { display: grid; justify-items: center; gap: var(--space-sm); }
+.result .display { font-size: var(--text-display-s); max-width: 18ch; }
+.tier-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xs); padding: var(--space-md); }
+.tier-switch button { min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); cursor: pointer; transition: border-color var(--dur-short) var(--ease-out); }
+.tier-switch button:hover { border-color: var(--color-ink-2); }
+.tier-switch button[aria-pressed=&quot;true&quot;] { border-color: var(--color-ink); color: var(--color-ink); }
+.tier-switch button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.box.is-gone { background: transparent; border-style: dashed; border-color: var(--color-accent); color: transparent; }
+.box.is-gone::before { border: 0; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;reveal&quot; id=&quot;reveal&quot; data-tier=&quot;rare&quot;&gt;
+  &lt;div class=&quot;reveal__ghost&quot; aria-hidden=&quot;true&quot; id=&quot;ghost&quot;&gt;&lt;/div&gt;
+
+  &lt;header class=&quot;container nav&quot;&gt;
+    &lt;a class=&quot;logo&quot; href=&quot;./index.html&quot; data-slot=&quot;logo&quot; data-alt=&quot;Qikify&quot;&gt;Qikify&lt;/a&gt;
+    &lt;p class=&quot;small&quot;&gt;Box &lt;span class=&quot;num&quot; id=&quot;boxno&quot;&gt;047&lt;/span&gt; of 100&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;reveal__main&quot;&gt;
+    &lt;div class=&quot;mysbox-stage&quot; data-slot=&quot;mysbox&quot; data-alt=&quot;Mysbox unboxing&quot;&gt;
+      &lt;p class=&quot;small&quot;&gt;Mysbox stage: the box and its animation, unchanged.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;result&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h1 class=&quot;display&quot; id=&quot;prize&quot;&gt;$50 Amazon gift card&lt;/h1&gt;
+      &lt;span class=&quot;badge badge--rare&quot; id=&quot;badge&quot;&gt;&lt;span class=&quot;pips&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span id=&quot;tiername&quot;&gt;Rare&lt;/span&gt;&lt;/span&gt;
+      &lt;p class=&quot;lead&quot; id=&quot;note&quot;&gt;We will email the code to you.&lt;/p&gt;
+      &lt;a class=&quot;btn&quot; href=&quot;#claim&quot; id=&quot;claim&quot;&gt;Claim it&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tape&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;/div&gt;
+
+&lt;/main&gt;
+  &lt;div class=&quot;tier-switch&quot; role=&quot;group&quot; aria-label=&quot;Preview a tier&quot; id=&quot;switch&quot;&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;common&quot; aria-pressed=&quot;false&quot;&gt;Common&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;medium&quot; aria-pressed=&quot;false&quot;&gt;Medium rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;rare&quot; aria-pressed=&quot;true&quot;&gt;Rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;legendary&quot; aria-pressed=&quot;false&quot;&gt;Legendary&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+(function () {
+  const T = {
+    common: { name: &#x27;Common&#x27;, pips: 1, cls: &#x27;&#x27;, prize: &#x27;Mysbox discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    medium: { name: &#x27;Medium rare&#x27;, pips: 2, cls: &#x27;badge--medium&#x27;, prize: &#x27;Tepo discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    rare: { name: &#x27;Rare&#x27;, pips: 3, cls: &#x27;badge--rare&#x27;, prize: &#x27;$50 Amazon gift card&#x27;, note: &#x27;We will email the code to you.&#x27; },
+    legendary: { name: &#x27;Legendary&#x27;, pips: 4, cls: &#x27;badge--legendary&#x27;, prize: &#x27;Three apps, your pick&#x27;, note: &#x27;Choose any three Qikify apps.&#x27; }
+  };
+  const root = document.getElementById(&#x27;reveal&#x27;);
+  const ghost = document.getElementById(&#x27;ghost&#x27;);
+  function fill(n) {
+    ghost.textContent = &#x27;&#x27;;
+    for (let i = 1; i &lt;= 100; i++) {
+      const sp = document.createElement(&#x27;span&#x27;);
+      sp.textContent = String(i).padStart(3, &#x27;0&#x27;);
+      if (i === n) sp.className = &#x27;is-this&#x27;;
+      ghost.appendChild(sp);
+    }
+  }
+  function set(t) {
+    const d = T[t]; if (!d) return;
+    root.dataset.tier = t;
+    const b = document.getElementById(&#x27;badge&#x27;);
+    b.className = &#x27;badge &#x27; + d.cls;
+    b.querySelectorAll(&#x27;.pips i&#x27;).forEach((p, i) =&gt; p.classList.toggle(&#x27;on&#x27;, i &lt; d.pips));
+    document.getElementById(&#x27;tiername&#x27;).textContent = d.name;
+    document.getElementById(&#x27;prize&#x27;).textContent = d.prize;
+    document.getElementById(&#x27;note&#x27;).textContent = d.note;
+    document.querySelectorAll(&#x27;#switch button&#x27;).forEach((x) =&gt; x.setAttribute(&#x27;aria-pressed&#x27;, String(x.dataset.t === t)));
+  }
+  document.getElementById(&#x27;switch&#x27;).addEventListener(&#x27;click&#x27;, (e) =&gt; { const b = e.target.closest(&#x27;button&#x27;); if (b) set(b.dataset.t); });
+  const q = new URLSearchParams(&#x27;embed&amp;tier=rare&amp;box=063&#x27;);
+  if (q.get(&#x27;tier&#x27;)) set(q.get(&#x27;tier&#x27;));
+  const box = parseInt(q.get(&#x27;box&#x27;) || &#x27;47&#x27;, 10);
+  document.getElementById(&#x27;boxno&#x27;).textContent = String(box).padStart(3, &#x27;0&#x27;);
+  fill(box);
+  if (q.has(&#x27;embed&#x27;)) document.getElementById(&#x27;switch&#x27;).hidden = true;
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Reveal background, rare" tabindex="-1" inert data-frame="reveal-rare-1920x1080"></iframe></div>
+      <div class="fit" style="--z: 0.42"><iframe class="f f--reveal" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Qikify Box Reveal&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;The Black Friday skin around the Mysbox unboxing: background, tier badge and result.&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Antonio:wght@700&amp;family=Hanken+Grotesk:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+/* Hallmark · shape: the box wall, a drop page built around 100 numbered boxes · genre: playful · theme: custom · job: try · idea: &quot;a limited drop of exactly 100 numbered boxes, each one a ticket you can see go&quot; · vibe: &quot;Black Friday drop, loud, numbered, rare&quot;
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: headline and action left, the 100-box wall right · nav: a logo slot and one action · footer: a slim bar, brand and terms · imagery: none, the box wall and the Mysbox stage are the picture · signature: the wall of 100 numbered boxes, opened ones lit in their tier colour
+ * axes: dark/display-condensed/chromatic-red · posture: full palette (ground, ink, flame signal, four tier colours with names and pips) · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: S, a box grid could fit any giveaway; numbered 001 to 100 and tied to the four named Qikify tiers so it only reads as this drop */
+/* Hallmark · waive 81 · data-slot mysbox on reveal.html holds the Mysbox unboxing itself · the Mysbox box and animation are kept as is and dev mounts them there */
+/* Hallmark · dismissed 23 · the flame tape is the declared full palette&#x27;s Black Friday band, not accent creep */
+/* Hallmark · dismissed 25 · the Mysbox stage note is a one-line caption inside the frame, held at 30ch to sit centred */
+/* Hallmark · dismissed 40 · the reveal&#x27;s ghost box numbers are aria-hidden texture behind the stage, not text to read */
+/* Hallmark · dismissed F18 · the logo slot is a fixed 120px mark in the nav, sized for Qikify&#x27;s horizontal logo */
+/* Hallmark · brand: Qikify (no spec: qikify.com unreachable from the build container; logo and primary go in data-slot=&quot;logo&quot; and --color-brand) */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* Black Friday ground: warm black, bone ink. Qikify&#x27;s own primary is not locked yet (brand fetch blocked): drop it into --color-brand. */
+  --color-paper: oklch(15% 0.012 40); --color-paper-2: oklch(19% 0.014 40); --color-paper-3: oklch(24% 0.016 40);
+  --color-ink: oklch(95% 0.01 80); --color-ink-2: oklch(82% 0.012 80); --color-muted: oklch(66% 0.012 60);
+  --color-rule: oklch(32% 0.014 40);
+  --color-accent: oklch(66% 0.21 32); --color-accent-ink: oklch(16% 0.012 40); --color-focus: oklch(68% 0.2 32);
+  --color-brand: var(--color-ink);
+  /* Rarity ladder: silver, mint, gold, flame. Each tier also carries a name and 1 to 4 pips, so colour is never the only signal. */
+  --tier-common: oklch(84% 0.025 250); --tier-medium: oklch(80% 0.15 158); --tier-rare: oklch(82% 0.15 78); --tier-legendary: oklch(66% 0.21 32);
+  --tier-ink: oklch(16% 0.012 40);
+  --font-display: &quot;Antonio&quot;, &quot;Arial Narrow&quot;, ui-sans-serif, sans-serif; --font-body: &quot;Hanken Grotesk&quot;, ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 6px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] &gt; img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(&gt; img) &gt; :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+
+/* Type */
+.display { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0; line-height: 1; }
+h1.display { font-size: clamp(3.5rem, 6.2vw, 6.5rem); max-width: 14ch; }
+h2.display { font-size: var(--text-section); line-height: 1.02; max-width: 22ch; }
+.lead { font-size: var(--text-lead); color: var(--color-ink-2); max-width: 34ch; }
+.small { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 52px; padding: 0 var(--space-xl); border: 1px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--tier-ink); font: 700 var(--text-md)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled=&quot;true&quot;] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy=&quot;true&quot;] { cursor: progress; }
+.link { color: var(--color-ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--color-rule); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); }
+.link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .btn, .link { transition: none; } }
+
+/* Logo slot: Qikify&#x27;s real mark replaces the text fallback */
+.logo { display: inline-flex; align-items: center; width: 120px; aspect-ratio: 15 / 4; background: none; font: 700 var(--text-xl)/1 var(--font-body); color: var(--color-brand); text-decoration: none; letter-spacing: -0.02em; }
+.logo &gt; img { object-fit: contain; object-position: left center; }
+.logo:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+
+/* Tier badge: name plus 1 to 4 pips, so rarity reads without colour */
+.badge { --t: var(--tier-common); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 32px; padding: 0 var(--space-sm); border: 1.5px solid var(--t); border-radius: var(--radius-pill); color: var(--t); font: 700 var(--text-sm)/1 var(--font-body); white-space: nowrap; }
+.badge .pips { display: inline-flex; gap: var(--space-3xs); }
+.badge .pips i { width: 7px; height: 7px; transform: rotate(45deg); border: 1.5px solid currentColor; }
+.badge .pips i.on { background: currentColor; }
+.badge--medium { --t: var(--tier-medium); }
+.badge--rare { --t: var(--tier-rare); background: var(--t); color: var(--tier-ink); }
+.badge--legendary { --t: var(--tier-legendary); background: var(--t); color: var(--color-accent-ink); box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 4.5px var(--t); }
+
+/* The box wall: 100 numbered boxes */
+.wall { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.box { --t: var(--color-rule); position: relative; aspect-ratio: 1; display: grid; place-items: end start; padding: var(--space-2xs); border: 1px solid var(--color-rule); border-radius: 4px; background: var(--color-paper-2); color: var(--color-muted); font: 400 clamp(0.6875rem, 0.8vw, 0.8125rem)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.box::before { content: &quot;&quot;; position: absolute; inset: 22% 0 auto; border-top: 1px solid var(--color-rule); }
+.box[data-tier] { background: var(--t); border-color: var(--t); color: var(--tier-ink); }
+.box[data-tier]::before { border-color: color-mix(in oklab, var(--tier-ink) 25%, transparent); }
+.box[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.box[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.box[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.box[data-tier=&quot;legendary&quot;] { --t: var(--tier-legendary); color: var(--color-accent-ink); }
+
+.box.is-next { border-color: var(--color-accent); color: var(--color-ink); animation: nudge 2.4s var(--ease-in-out) infinite; }
+@keyframes nudge { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-6deg); } 82% { transform: rotate(5deg); } 88% { transform: rotate(-3deg); } 94% { transform: rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .box.is-next { animation: none; } }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-xs) 0 0; padding: 0; list-style: none; }
+
+/* Black Friday tape: the campaign&#x27;s one pattern */
+.tape { display: flex; gap: var(--space-xl); overflow: hidden; padding: var(--space-xs) 0; background: var(--color-accent); color: var(--color-accent-ink); font: 700 var(--text-md)/1.2 var(--font-display); text-transform: uppercase; white-space: nowrap; }
+.tape span { flex-shrink: 0; }
+
+/* ---------- Landing page ---------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 72px; }
+.nav .small a { color: var(--color-ink-2); }
+
+.hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); align-items: center; min-height: min(728px, calc(100svh - 112px)); padding-block: var(--space-xl) var(--space-2xl); }
+.hero__copy { grid-column: 1 / span 6; display: grid; gap: var(--space-lg); justify-items: start; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-xs); }
+.hero__wall { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+.hero__wall .small { display: flex; justify-content: space-between; gap: var(--space-md); }
+.engine { display: inline-flex; align-items: center; gap: var(--space-xs); }
+
+.section { padding-block: var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.section__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
+
+.ladder { display: grid; margin: 0; padding: 0; list-style: none; }
+.rung { --t: var(--tier-common); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); gap: var(--gap-columns); align-items: center; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.rung:last-child { border-bottom: 1px solid var(--color-rule); }
+.rung &gt; .badge { justify-self: start; }
+.rung__prize { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-3xl); line-height: 1; color: var(--t); }
+.rung__apps { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
+.rung__apps li { padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); }
+.rung--medium { --t: var(--tier-medium); }
+.rung--rare { --t: var(--tier-rare); }
+.rung--legendary { --t: var(--tier-legendary); }
+.rung--legendary .rung &gt; .badge { justify-self: start; }
+.rung__prize { font-size: var(--text-section); }
+
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; }
+.split__ways { display: grid; gap: var(--space-md); }
+.split__ways h2 { margin-bottom: var(--space-lg); }
+.faq__title { margin-bottom: var(--space-md); font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); }
+.way { display: grid; gap: var(--space-md); align-content: start; padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-paper-2); }
+.way h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+
+.stage-preview { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); align-items: center; }
+.stage-preview__copy { display: grid; gap: var(--space-md); justify-items: start; }
+
+.faq { display: grid; }
+.faq details { border-top: 1px solid var(--color-rule); }
+.faq details:last-child { border-bottom: 1px solid var(--color-rule); }
+.faq summary { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-lg); font-weight: 700; font-size: var(--text-lg); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: &quot;+&quot;; color: var(--color-muted); }
+.faq details[open] summary::after { content: &quot;\2212&quot;; }
+.faq summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.faq details p { padding-bottom: var(--space-lg); color: var(--color-ink-2); }
+.tbc { color: var(--tier-rare); }
+
+.close { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; }
+.close__num { font-family: var(--font-display); font-weight: 700; font-size: clamp(10rem, 26vw, 24rem); line-height: 0.8; color: var(--color-accent); font-variant-numeric: tabular-nums; }
+.close__copy { display: grid; gap: var(--space-lg); justify-items: start; padding-bottom: var(--space-md); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+
+@media (max-width: 60rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: var(--space-xl); padding-top: var(--space-md); }
+  .hero__copy, .hero__wall { grid-column: 1; }
+  .rung { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .split, .stage-preview, .close { grid-template-columns: minmax(0, 1fr); }
+  .split { gap: var(--space-2xl); }
+}
+@media (max-width: 40rem) {
+  .nav .small { display: none; }
+  .wall { gap: var(--space-2xs); }
+  .way { padding: var(--space-lg); }
+}
+
+/* ---------- Reveal page (custom skin around the Mysbox stage) ---------- */
+.reveal { --t: var(--tier-legendary); position: relative; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; isolation: isolate; background: radial-gradient(60% 55% at 50% 52%, color-mix(in oklab, var(--t) 30%, var(--color-paper)), var(--color-paper) 70%); }
+.reveal[data-tier=&quot;common&quot;] { --t: var(--tier-common); }
+.reveal[data-tier=&quot;medium&quot;] { --t: var(--tier-medium); }
+.reveal[data-tier=&quot;rare&quot;] { --t: var(--tier-rare); }
+.reveal__ghost { --cell: min(calc((100svh - var(--space-xl)) / 10 - var(--space-sm)), calc((100vw - var(--space-xl)) / 10 - var(--space-sm))); position: absolute; inset: 0; z-index: -1; display: grid; grid-template-columns: repeat(10, var(--cell)); grid-auto-rows: var(--cell); justify-content: center; align-content: center; gap: var(--space-sm); overflow: hidden; pointer-events: none; mask-image: linear-gradient(var(--color-paper) 50%, transparent 66%); }
+.reveal__ghost span { display: grid; place-items: end start; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--color-rule); border-radius: 4px; color: var(--color-muted); font: 400 var(--text-xs)/1 var(--font-display); opacity: 0.28; }
+.reveal__ghost span.is-this { opacity: 1; border: 2px solid var(--t); color: var(--t); }
+.reveal .nav .small { color: var(--color-ink-2); }
+.reveal__main { display: grid; justify-items: center; align-content: center; gap: var(--space-lg); padding: var(--space-xl) var(--gutter); text-align: center; }
+.mysbox-stage { width: min(560px, 100%); aspect-ratio: 1; display: grid; place-items: center; border: 1.5px dashed color-mix(in oklab, var(--t) 60%, var(--color-rule)); border-radius: var(--radius-card); background: color-mix(in oklab, var(--color-paper) 80%, transparent); color: var(--color-muted); }
+.mysbox-stage p { max-width: 30ch; }
+.stage-frame { pointer-events: none; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); }
+.stage-frame:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.reveal__main .mysbox-stage { width: min(420px, 100%); }
+.result { display: grid; justify-items: center; gap: var(--space-sm); }
+.result .display { font-size: var(--text-display-s); max-width: 18ch; }
+.tier-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xs); padding: var(--space-md); }
+.tier-switch button { min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: var(--text-sm); cursor: pointer; transition: border-color var(--dur-short) var(--ease-out); }
+.tier-switch button:hover { border-color: var(--color-ink-2); }
+.tier-switch button[aria-pressed=&quot;true&quot;] { border-color: var(--color-ink); color: var(--color-ink); }
+.tier-switch button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.box.is-gone { background: transparent; border-style: dashed; border-color: var(--color-accent); color: transparent; }
+.box.is-gone::before { border: 0; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;reveal&quot; id=&quot;reveal&quot; data-tier=&quot;rare&quot;&gt;
+  &lt;div class=&quot;reveal__ghost&quot; aria-hidden=&quot;true&quot; id=&quot;ghost&quot;&gt;&lt;/div&gt;
+
+  &lt;header class=&quot;container nav&quot;&gt;
+    &lt;a class=&quot;logo&quot; href=&quot;./index.html&quot; data-slot=&quot;logo&quot; data-alt=&quot;Qikify&quot;&gt;Qikify&lt;/a&gt;
+    &lt;p class=&quot;small&quot;&gt;Box &lt;span class=&quot;num&quot; id=&quot;boxno&quot;&gt;047&lt;/span&gt; of 100&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;reveal__main&quot;&gt;
+    &lt;div class=&quot;mysbox-stage&quot; data-slot=&quot;mysbox&quot; data-alt=&quot;Mysbox unboxing&quot;&gt;
+      &lt;p class=&quot;small&quot;&gt;Mysbox stage: the box and its animation, unchanged.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;result&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;h1 class=&quot;display&quot; id=&quot;prize&quot;&gt;$50 Amazon gift card&lt;/h1&gt;
+      &lt;span class=&quot;badge badge--rare&quot; id=&quot;badge&quot;&gt;&lt;span class=&quot;pips&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span id=&quot;tiername&quot;&gt;Rare&lt;/span&gt;&lt;/span&gt;
+      &lt;p class=&quot;lead&quot; id=&quot;note&quot;&gt;We will email the code to you.&lt;/p&gt;
+      &lt;a class=&quot;btn&quot; href=&quot;#claim&quot; id=&quot;claim&quot;&gt;Claim it&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tape&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;span&gt;Black Friday&lt;/span&gt;&lt;span&gt;Cyber Monday&lt;/span&gt;&lt;span&gt;100 boxes&lt;/span&gt;&lt;/div&gt;
+
+&lt;/main&gt;
+  &lt;div class=&quot;tier-switch&quot; role=&quot;group&quot; aria-label=&quot;Preview a tier&quot; id=&quot;switch&quot;&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;common&quot; aria-pressed=&quot;false&quot;&gt;Common&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;medium&quot; aria-pressed=&quot;false&quot;&gt;Medium rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;rare&quot; aria-pressed=&quot;true&quot;&gt;Rare&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-t=&quot;legendary&quot; aria-pressed=&quot;false&quot;&gt;Legendary&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+(function () {
+  const T = {
+    common: { name: &#x27;Common&#x27;, pips: 1, cls: &#x27;&#x27;, prize: &#x27;Mysbox discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    medium: { name: &#x27;Medium rare&#x27;, pips: 2, cls: &#x27;badge--medium&#x27;, prize: &#x27;Tepo discount&#x27;, note: &#x27;Applied to your store on install.&#x27; },
+    rare: { name: &#x27;Rare&#x27;, pips: 3, cls: &#x27;badge--rare&#x27;, prize: &#x27;$50 Amazon gift card&#x27;, note: &#x27;We will email the code to you.&#x27; },
+    legendary: { name: &#x27;Legendary&#x27;, pips: 4, cls: &#x27;badge--legendary&#x27;, prize: &#x27;Three apps, your pick&#x27;, note: &#x27;Choose any three Qikify apps.&#x27; }
+  };
+  const root = document.getElementById(&#x27;reveal&#x27;);
+  const ghost = document.getElementById(&#x27;ghost&#x27;);
+  function fill(n) {
+    ghost.textContent = &#x27;&#x27;;
+    for (let i = 1; i &lt;= 100; i++) {
+      const sp = document.createElement(&#x27;span&#x27;);
+      sp.textContent = String(i).padStart(3, &#x27;0&#x27;);
+      if (i === n) sp.className = &#x27;is-this&#x27;;
+      ghost.appendChild(sp);
+    }
+  }
+  function set(t) {
+    const d = T[t]; if (!d) return;
+    root.dataset.tier = t;
+    const b = document.getElementById(&#x27;badge&#x27;);
+    b.className = &#x27;badge &#x27; + d.cls;
+    b.querySelectorAll(&#x27;.pips i&#x27;).forEach((p, i) =&gt; p.classList.toggle(&#x27;on&#x27;, i &lt; d.pips));
+    document.getElementById(&#x27;tiername&#x27;).textContent = d.name;
+    document.getElementById(&#x27;prize&#x27;).textContent = d.prize;
+    document.getElementById(&#x27;note&#x27;).textContent = d.note;
+    document.querySelectorAll(&#x27;#switch button&#x27;).forEach((x) =&gt; x.setAttribute(&#x27;aria-pressed&#x27;, String(x.dataset.t === t)));
+  }
+  document.getElementById(&#x27;switch&#x27;).addEventListener(&#x27;click&#x27;, (e) =&gt; { const b = e.target.closest(&#x27;button&#x27;); if (b) set(b.dataset.t); });
+  const q = new URLSearchParams(&#x27;embed&amp;tier=legendary&amp;box=063&#x27;);
+  if (q.get(&#x27;tier&#x27;)) set(q.get(&#x27;tier&#x27;));
+  const box = parseInt(q.get(&#x27;box&#x27;) || &#x27;47&#x27;, 10);
+  document.getElementById(&#x27;boxno&#x27;).textContent = String(box).padStart(3, &#x27;0&#x27;);
+  fill(box);
+  if (q.has(&#x27;embed&#x27;)) document.getElementById(&#x27;switch&#x27;).hidden = true;
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Reveal background, legendary" tabindex="-1" inert data-frame="reveal-legendary-1920x1080"></iframe></div>
+    </div>
+  </section>
+  <section class="spec" id="wireframe" aria-labelledby="wf-t">
+    <div class="spec__meta"><h2 id="wf-t">Wireframe for dev</h2><p class="small">Landing page, desktop and mobile. Built in index.html.</p></div>
+    <div class="spec__body"><div class="row">
+  <div class="wf wf--desk" aria-label="Desktop wireframe">
+    <div><b>Tape</b> Black Friday, Cyber Monday, 100 boxes. Full bleed, 48px.</div>
+    <div><b>Nav</b> Qikify logo left. Unboxing by Mysbox right.</div>
+    <div class="cols"><span><b>Hero copy</b>, columns 1 to 6. H1, one line, Open a box, See the four tiers.</span><span></span><span><b>Box wall</b>, columns 8 to 12. 10 by 10, live from the API. One random shut box nudges. Tier legend. Boxes left.</span></div>
+    <div class="blk"><b>Prize ladder</b>. Four rows: badge, prize, apps.</div>
+    <div class="cols"><span><b>Two ways to get a box</b>. In app, on qikify.com.</span><span></span><span><b>Fine print</b>. Accordion, four questions.</span></div>
+    <div class="cols"><span><b>Reveal preview</b>. Copy left.</span><span></span><span><b>reveal.html</b> embedded, 4:3.</span></div>
+    <div class="blk"><b>Close</b>. Huge 100 in flame, H2, Open a box.</div>
+    <div><b>Footer</b>. Brand, terms.</div>
+  </div>
+  <div class="wf wf--mob" aria-label="Mobile wireframe">
+    <div><b>Tape</b></div>
+    <div><b>Nav</b> logo</div>
+    <div class="blk"><b>H1</b>, line, Open a box</div>
+    <div class="blk"><b>Box wall</b> 10 by 10, 4px gap</div>
+    <div class="blk"><b>Ladder</b> stacked</div>
+    <div class="blk"><b>Ways</b>, then fine print</div>
+    <div class="blk"><b>Reveal</b> preview</div>
+    <div class="blk"><b>Close</b></div>
+    <div><b>Footer</b></div>
+  </div>
+</div></div>
+  </section>
+  <footer class="spec"><p class="small"><a class="link" href="qikify-bfcm-landing.html">Landing page</a></p><p class="small"><a class="link" href="qikify-bfcm-reveal.html">Reveal page</a></p></footer>
+</main>
+<script>
+/* ?frame=<data-frame name> shows that one frame alone at 1:1 for export */
+(function () {
+  const name = new URLSearchParams(location.search).get('frame');
+  if (!name) return;
+  const f = document.querySelector('[data-frame="' + name + '"]');
+  if (!f) return;
+  document.body.classList.add('export');
+  document.querySelectorAll('.is-export').forEach((n) => n.classList.remove('is-export'));
+  const fit = f.closest('.fit'), spec = f.closest('.spec');
+  fit.classList.add('is-export'); spec.classList.add('is-export');
+})();
+/* Each frame keeps its export size and is zoomed to fit its column */
+(function () {
+  const fit = () => document.querySelectorAll('.fit > .f').forEach((f) => {
+    const w = parseFloat(getComputedStyle(f).width);
+    f.style.setProperty('--z', Math.min(1, f.closest('.spec__body').clientWidth / w).toFixed(4));
+  });
+  if (!document.body.classList.contains('export')) { fit(); addEventListener('resize', fit); }
+})();
+</script>
+</body>
+</html>
