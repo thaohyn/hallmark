@@ -1,0 +1,138 @@
+/* Hallmark · shape: a key visual board, the master KV and its derived frames at export size · genre: playful · theme: custom · job: try · idea: "a limited drop of exactly 100 numbered boxes, each one a ticket you can see go" · vibe: "Black Friday drop, loud, numbered, rare"
+ * paper: oklch(15% 0.012 40) · accent: oklch(66% 0.21 32) · display: Antonio · body: Hanken Grotesk · hero: the master KV, 1920 by 800, at the top of the board · nav: none, a board · footer: none · imagery: none, the box wall is the picture · signature: one box pulled out of the 100-box wall, flame, mid-shake
+ * axes: dark/display-condensed/chromatic-red · posture: full palette · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: H, eight frames on one board; each frame sits alone on its own row with its size and use beside it */
+/* Hallmark · waive 59 · kit.html is a spec board of frames, one rhythm on purpose · every spec row sits on the same hairline cadence so frames compare */
+/* Hallmark · waive 77 · the announcement bar spec is 1920 by 56 by definition · the bar frame cannot carry more mass than its export size */
+/* Hallmark · waive 78 · board spec heads stay small beside the frames · the frames, not the spec labels, are the board's display type */
+/* Hallmark · dismissed 72 · badges measure 3px only because the board zooms each frame down; at export size they carry 4px and more */
+/* Hallmark · dismissed 58 · the 453-word count includes the text inside the zoomed export frames on the board */
+/* Hallmark · dismissed F15 · the gaps differ inside fixed-size export frames, each composed alone, and the board itself uses one */
+@import url("./campaign.css");
+
+/* Board */
+.board { display: grid; gap: var(--space-3xl); padding-block: var(--space-2xl) var(--space-4xl); }
+.board__head { display: grid; gap: var(--space-md); }
+.spec { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--gap-columns); align-items: start; padding-top: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.spec__meta { display: grid; gap: var(--space-xs); }
+.spec__meta h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.05; }
+.spec__body { min-width: 0; display: grid; gap: var(--space-lg); }
+.fit { width: max-content; max-width: 100%; overflow: hidden; border-radius: var(--radius-card); outline: 1px solid var(--color-rule); }
+.fit > .f { zoom: var(--z, 0.45); }
+.row { display: flex; flex-wrap: wrap; gap: var(--space-lg); align-items: flex-start; }
+
+/* Frames: fixed export sizes. Inside, everything is in em so a frame scales as one picture. */
+.f { --t: var(--tier-legendary); position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); background: var(--color-paper); color: var(--color-ink); font-size: 16px; isolation: isolate; }
+.f--kv { width: 1920px; height: 800px; }
+.f--mobile { width: 750px; height: 1000px; font-size: 20px; }
+.f--inapp { width: 1200px; height: 300px; }
+.f--email { width: 1200px; height: 600px; }
+.f--bar { width: 1920px; height: 56px; }
+.f--popup { width: 800px; height: 960px; font-size: 18px; }
+.f--reveal { width: 1920px; height: 1080px; }
+
+.f .tape { padding: 0.6em 0; font-size: 1.25em; }
+.f .logo { width: 7.5em; height: 2em; font-size: 1em; }
+.f .logo { font-size: 1.75em; width: auto; }
+.f .small { font-size: 0.95em; }
+.f .btn { min-height: 3.5em; padding: 0 2.25em; font-size: 1.15em; }
+.f .badge { font-size: 0.95em; padding-block: var(--space-2xs); }
+.f h1, .f h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; line-height: 1; letter-spacing: 0; }
+
+/* The lifted box: one box pulled out of the wall, mid-shake */
+.f .wall { gap: 0.5em; }
+.f .box { font-size: 0.85em; padding: 0.3em 0.4em; }
+.lift { position: absolute; display: grid; place-items: center; aspect-ratio: 1; border-radius: 0.5em; background: var(--color-accent); color: var(--color-accent-ink); transform: rotate(-8deg); box-shadow: 0 0 0 0.6em var(--color-paper); font-family: var(--font-display); font-weight: 700; }
+.lift::before { content: ""; position: absolute; inset: 22% 0 auto; border-top: 0.12em solid color-mix(in oklab, var(--color-accent-ink) 35%, transparent); }
+.lift b { font-size: 3.6em; line-height: 1; }
+.lift span { position: absolute; left: 0.7em; bottom: 0.5em; font-size: 1.1em; font-weight: 400; }
+
+/* KV master 1920 x 800 */
+.kv { grid-template-rows: max-content 1fr; }
+.kv__body { display: grid; grid-template-columns: minmax(0, 1fr) 40em; gap: 7em; align-items: center; padding: 0 7.5em 3em; }
+.kv__copy { display: grid; gap: 2em; justify-items: start; }
+.kv__copy .logo { margin-bottom: 1em; }
+.kv__copy h1 { font-size: 8.25em; }
+.kv__copy .lead { font-size: 1.6em; max-width: 30ch; }
+.kv__actions { display: flex; align-items: center; gap: 2em; }
+.kv__art { position: relative; }
+.kv__art .lift { width: 13em; top: 11em; left: -4em; }
+.kv__art .lift b { font-size: 6em; }
+.kv__meta { display: flex; justify-content: space-between; margin-top: 1.25em; color: var(--color-muted); }
+
+/* Mobile 750 x 1000 */
+.mob { grid-template-rows: max-content max-content 1fr; }
+.mob__copy { display: grid; gap: 1.2em; justify-items: start; padding: 1.5em 1.6em 0; }
+.mob__copy h1 { font-size: 4.6em; }
+.mob__copy .lead { font-size: 1.2em; max-width: 26ch; }
+.mob__art { position: relative; padding: 2em 1.6em 0; }
+.mob__art .lift { width: 8em; top: 0.6em; right: 2em; }
+.mob__art .lift b { font-size: 4em; }
+
+/* In-app notification 1200 x 300 */
+.inapp { grid-template-columns: minmax(0, 1fr) 30em; }
+.inapp__copy { display: grid; gap: 0.9em; align-content: center; justify-items: start; padding: 0 3em; }
+.inapp__copy h2 { font-size: 3.6em; }
+.inapp__copy .btn { min-height: 2.9em; }
+.inapp__art { position: relative; padding: 1.5em 2em 0 0; }
+.inapp__art .lift { width: 7em; top: 4.5em; left: -2em; }
+.inapp__art .lift b { font-size: 3.2em; }
+
+/* Email header 1200 x 600 */
+.email { grid-template-rows: max-content 1fr; }
+.email__body { display: grid; grid-template-columns: 1fr 26em; gap: 3em; align-items: center; padding: 0 4em; }
+.email__copy { display: grid; gap: 1.4em; justify-items: start; }
+.email__copy h1 { font-size: 6em; }
+.email__art { position: relative; }
+.email__art .lift { width: 8.5em; top: 6em; left: -3em; }
+.email__art .lift b { font-size: 4em; }
+
+/* Announcement bar 1920 x 56 */
+.bar { display: flex; align-items: center; justify-content: center; gap: 1.5em; background: var(--color-accent); color: var(--color-accent-ink); }
+.bar p { font: 700 1.5em/1 var(--font-display); text-transform: uppercase; }
+.bar a { color: var(--color-accent-ink); font-weight: 700; font-size: 1.05em; text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Popup 800 x 960 */
+.pop { grid-template-rows: max-content max-content 1fr; border-radius: 1em; }
+.pop__art { position: relative; padding: 2.5em 2.5em 0; }
+.pop__art .lift { width: 10em; top: 4em; left: 50%; margin-left: -5em; }
+.pop__art .lift b { font-size: 5em; }
+.pop__copy { display: grid; gap: 1.4em; justify-items: center; align-content: center; padding: 2em 3em 2.5em; text-align: center; }
+.pop__copy h2 { font-size: 5em; }
+.pop__copy .lead { font-size: 1.3em; }
+.pop__close { position: absolute; top: 1.4em; right: 1.4em; z-index: 2; display: grid; place-items: center; width: 2.5em; height: 2.5em; border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink-2); font-size: 1.1em; }
+.pop .legend { justify-content: center; }
+
+/* Wireframe */
+.wf { display: grid; gap: var(--space-xs); padding: var(--space-md); border-radius: var(--radius-card); background: var(--color-paper-2); font-size: var(--text-sm); color: var(--color-ink-2); }
+.wf > div { display: grid; gap: var(--space-xs); padding: var(--space-sm); border: 1px dashed var(--color-muted); border-radius: 4px; }
+.wf .cols { grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr); border: 0; padding: 0; }
+.wf .cols > span, .wf .blk { padding: var(--space-sm); border: 1px dashed var(--color-muted); border-radius: 4px; min-height: 64px; }
+.wf--desk { width: min(100%, 720px); }
+.wf--mob { width: 240px; }
+.wf b { color: var(--color-ink); }
+
+/* Swatches */
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); }
+.swatch { display: grid; gap: var(--space-xs); }
+.swatch i { display: block; height: 96px; border-radius: var(--radius-card); background: var(--s); }
+.swatch code { color: var(--color-muted); font-family: var(--font-body); font-size: var(--text-sm); }
+
+/* Export mode: one frame, unscaled, alone */
+body.export { background: var(--color-paper); }
+body.export .board > :not(.is-export), body.export .spec__meta { display: none; }
+body.export .board { padding: 0; max-width: none; }
+body.export .spec { display: block; padding: 0; border: 0; }
+body.export .fit { outline: 0; border-radius: 0; width: max-content; max-width: none; }
+body.export .fit > .f { zoom: 1; }
+body.export .spec__body > :not(.is-export) { display: none; }
+
+@media (max-width: 60rem) {
+  .spec { grid-template-columns: minmax(0, 1fr); }
+  .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .board .lift { animation: shake 2.6s var(--ease-in-out) infinite; }
+  @keyframes shake { 0%, 72%, 100% { transform: rotate(-8deg); } 78% { transform: rotate(-14deg); } 84% { transform: rotate(-3deg); } 90% { transform: rotate(-11deg); } 95% { transform: rotate(-6deg); } }
+}
+body.export .lift { animation: none; }

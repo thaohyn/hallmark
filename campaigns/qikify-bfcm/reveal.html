@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qikify Box Reveal</title>
+<meta name="description" content="The Black Friday skin around the Mysbox unboxing: background, tier badge and result.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./campaign.css">
+</head>
+<body>
+<main class="reveal" id="reveal" data-tier="rare">
+  <div class="reveal__ghost" aria-hidden="true" id="ghost"></div>
+
+  <header class="container nav">
+    <a class="logo" href="./index.html" data-slot="logo" data-alt="Qikify">Qikify</a>
+    <p class="small">Box <span class="num" id="boxno">047</span> of 100</p>
+  </header>
+
+  <div class="reveal__main">
+    <div class="mysbox-stage" data-slot="mysbox" data-alt="Mysbox unboxing">
+      <p class="small">Mysbox stage: the box and its animation, unchanged.</p>
+    </div>
+    <div class="result" aria-live="polite">
+      <h1 class="display" id="prize">$50 Amazon gift card</h1>
+      <span class="badge badge--rare" id="badge"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span id="tiername">Rare</span></span>
+      <p class="lead" id="note">We will email the code to you.</p>
+      <a class="btn" href="#claim" id="claim">Claim it</a>
+    </div>
+  </div>
+
+  <div class="tape" aria-hidden="true"><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span><span>Black Friday</span><span>Cyber Monday</span><span>100 boxes</span></div>
+
+</main>
+  <div class="tier-switch" role="group" aria-label="Preview a tier" id="switch">
+    <button type="button" data-t="common" aria-pressed="false">Common</button>
+    <button type="button" data-t="medium" aria-pressed="false">Medium rare</button>
+    <button type="button" data-t="rare" aria-pressed="true">Rare</button>
+    <button type="button" data-t="legendary" aria-pressed="false">Legendary</button>
+  </div>
+
+<script>
+(function () {
+  const T = {
+    common: { name: 'Common', pips: 1, cls: '', prize: 'Mysbox discount', note: 'Applied to your store on install.' },
+    medium: { name: 'Medium rare', pips: 2, cls: 'badge--medium', prize: 'Tepo discount', note: 'Applied to your store on install.' },
+    rare: { name: 'Rare', pips: 3, cls: 'badge--rare', prize: '$50 Amazon gift card', note: 'We will email the code to you.' },
+    legendary: { name: 'Legendary', pips: 4, cls: 'badge--legendary', prize: 'Three apps, your pick', note: 'Choose any three Qikify apps.' }
+  };
+  const root = document.getElementById('reveal');
+  const ghost = document.getElementById('ghost');
+  function fill(n) {
+    ghost.textContent = '';
+    for (let i = 1; i <= 100; i++) {
+      const sp = document.createElement('span');
+      sp.textContent = String(i).padStart(3, '0');
+      if (i === n) sp.className = 'is-this';
+      ghost.appendChild(sp);
+    }
+  }
+  function set(t) {
+    const d = T[t]; if (!d) return;
+    root.dataset.tier = t;
+    const b = document.getElementById('badge');
+    b.className = 'badge ' + d.cls;
+    b.querySelectorAll('.pips i').forEach((p, i) => p.classList.toggle('on', i < d.pips));
+    document.getElementById('tiername').textContent = d.name;
+    document.getElementById('prize').textContent = d.prize;
+    document.getElementById('note').textContent = d.note;
+    document.querySelectorAll('#switch button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.t === t)));
+  }
+  document.getElementById('switch').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) set(b.dataset.t); });
+  const q = new URLSearchParams(location.search);
+  if (q.get('tier')) set(q.get('tier'));
+  const box = parseInt(q.get('box') || '47', 10);
+  document.getElementById('boxno').textContent = String(box).padStart(3, '0');
+  fill(box);
+  if (q.has('embed')) document.getElementById('switch').hidden = true;
+})();
+</script>
+</body>
+</html>
